@@ -1,0 +1,31 @@
+NON-DISCLOSURE AGREEMENT
+
+This Non-Disclosure Agreement (the "Agreement") is made on 15 April 2026 between Northwind Technologies Ltd ("Northwind") and Globex Corporation (the "Counterparty").
+
+1. Purpose. The parties intend to evaluate a joint product offering for enterprise customers (the "Purpose") and will exchange confidential information solely for that Purpose.
+
+2. Definition of Confidential Information. Confidential Information means any non-public information, in any form, that a reasonable person would understand to be confidential, whether or not it is marked as such.
+
+3. Confidentiality Obligations. The Receiving Party shall keep the Confidential Information secure, restrict access to personnel who need to know it, and use it only for the Purpose.
+
+4. Term of Confidentiality. The obligations of confidentiality shall survive for a period of five (5) years after termination of this Agreement, except that obligations in respect of trade secrets shall continue for as long as the information remains a trade secret.
+
+5. Compelled Disclosure. The Receiving Party may disclose Confidential Information to the extent that it is required to do so by law or by order of a court or government authority.
+
+6. Personal Data. Either party may share personal data of its employees and customers with the other party where reasonably necessary for the Purpose.
+
+7. Non-Solicitation. During the term of this Agreement and for two (2) years afterwards, neither party shall solicit for employment any employee of the other party who was involved in the Purpose.
+
+8. Remedies. Each party waives any right to seek injunctive or equitable relief in respect of a breach of this Agreement and agrees that monetary damages are the sole remedy.
+
+9. Publicity. The Counterparty may reference Northwind as a customer in its marketing materials and press releases during the term of this Agreement.
+
+10. Audit Rights. The Counterparty may, on reasonable notice, conduct on-site audits of Northwind's facilities to verify compliance with this Agreement.
+
+11. Governing Law. This Agreement shall be governed by and construed in accordance with the laws of England and Wales.
+
+12. Termination. Either party may terminate this Agreement for convenience by giving the other party thirty (30) days' written notice.
+
+13. Return of Information. On termination, the Receiving Party shall return or destroy all Confidential Information within thirty (30) days.
+
+14. Entire Agreement. This Agreement constitutes the entire agreement between the parties regarding its subject matter and supersedes all prior discussions, whether written or oral.

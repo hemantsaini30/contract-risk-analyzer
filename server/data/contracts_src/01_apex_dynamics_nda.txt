@@ -1,0 +1,29 @@
+MUTUAL NON-DISCLOSURE AGREEMENT
+
+This Mutual Non-Disclosure Agreement (the "Agreement") is made on 1 March 2026 between Northwind Technologies Ltd ("Northwind") and Apex Dynamics Inc. (the "Counterparty").
+
+1. Purpose. The parties wish to explore a potential business relationship concerning the integration of their software platforms (the "Purpose") and may disclose confidential information to each other for that Purpose only.
+
+2. Definition of Confidential Information. Confidential Information means only information that is clearly marked as "Confidential" in writing at the time of disclosure by the Disclosing Party.
+
+3. Confidentiality Obligations. Each party shall protect the other party's Confidential Information with at least reasonable care, shall not disclose it to any third party, and shall use it solely for the Purpose.
+
+4. Term of Confidentiality. The obligations of confidentiality under this Agreement shall survive for a period of seven (7) years after the termination or expiry of this Agreement.
+
+5. Residual Knowledge. Nothing in this Agreement shall restrict either party from using residual knowledge and ideas retained in the unaided memory of its personnel who had access to Confidential Information.
+
+6. Return of Information. Upon written request, the Receiving Party shall return or destroy all Confidential Information in its possession within ninety (90) days of that request.
+
+7. Indemnification. Northwind shall indemnify, defend and hold harmless the Counterparty against all claims, losses and expenses arising out of any use or disclosure of Confidential Information under this Agreement.
+
+8. Limitation of Liability. Northwind's liability arising out of this Agreement shall be unlimited, and Northwind shall be liable for all indirect and consequential damages suffered by the Counterparty.
+
+9. Governing Law. This Agreement shall be governed by and construed in accordance with the laws of the State of Texas, USA.
+
+10. Dispute Resolution. Any dispute arising out of or in connection with this Agreement shall be finally resolved by binding arbitration in Houston, Texas, under the rules of the American Arbitration Association.
+
+11. Termination. Either party may terminate this Agreement at any time by giving the other party ten (10) days' written notice.
+
+12. Assignment. Neither party may assign this Agreement without the prior written consent of the other party.
+
+13. Entire Agreement. This Agreement constitutes the entire agreement between the parties regarding its subject matter and supersedes all prior discussions, whether written or oral.

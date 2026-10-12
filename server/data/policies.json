@@ -1,0 +1,242 @@
+[
+  {
+    "policy_id": "POL-NDA-001",
+    "title": "Confidentiality term limit",
+    "section": "Term & Survival",
+    "default_severity": "Medium",
+    "text": "Confidentiality obligations under an NDA must not last longer than three (3) years from the date of termination or expiry of the agreement, except for trade secrets, which are covered by POL-NDA-002. Longer periods for other information require written approval from the Legal department.",
+    "mock_rule": {
+      "type": "max_duration",
+      "days": 1095,
+      "topic": "surviv|confidentiality (?:term|period|obligations)|remain(?:s)? (?:confidential|in effect)|continue (?:to apply|for)",
+      "fix_phrase": "three (3) years"
+    }
+  },
+  {
+    "policy_id": "POL-NDA-002",
+    "title": "No perpetual confidentiality",
+    "section": "Term & Survival",
+    "default_severity": "High",
+    "text": "Confidentiality obligations must not be perpetual or indefinite, except for information that qualifies as a trade secret under applicable law, which may be protected for as long as it remains a trade secret. Any other perpetual obligation requires approval from the General Counsel.",
+    "mock_rule": {
+      "type": "forbidden",
+      "pattern": "perpetu|indefinite|in perpetuity|never expire|no expiration",
+      "unless": "trade secret",
+      "message": "The clause makes confidentiality obligations perpetual or indefinite without a trade-secret carve-out",
+      "fix": "The obligations of confidentiality shall expire three (3) years after termination, except for trade secrets, which remain protected for as long as they qualify as trade secrets."
+    }
+  },
+  {
+    "policy_id": "POL-NDA-003",
+    "title": "Approved governing law",
+    "section": "Governing Law",
+    "default_severity": "High",
+    "text": "An NDA must be governed by the laws of England and Wales or the State of Delaware, USA. Any other governing law requires written approval from the Legal department.",
+    "mock_rule": {
+      "type": "forbidden",
+      "pattern": "laws? of (?:the )?(?:state of |republic of |people's republic of |commonwealth of )?(?:california|texas|new york|florida|singapore|china|russia|uae|united arab emirates|india|japan|germany|france|brazil|nigeria|saudi arabia)",
+      "message": "The governing law is not one of the approved jurisdictions (England and Wales, or Delaware)",
+      "fix": "This Agreement shall be governed by the laws of England and Wales."
+    }
+  },
+  {
+    "policy_id": "POL-NDA-004",
+    "title": "Liability must be capped",
+    "section": "Liability",
+    "default_severity": "Critical",
+    "text": "Northwind's aggregate liability under an NDA must be capped at a fixed amount. Unlimited liability, or liability for indirect and consequential damages, must not be accepted.",
+    "mock_rule": {
+      "type": "forbidden",
+      "pattern": "unlimited liability|liability.{0,80}unlimited|uncapped|without (?:any )?(?:limit|cap)\\b|(?<!not be )liable for (?:all |any )?(?:indirect|consequential)",
+      "message": "The clause exposes Northwind to unlimited or uncapped liability",
+      "fix": "Each party's aggregate liability under this Agreement shall not exceed USD 100,000, and neither party shall be liable for indirect or consequential damages.",
+      "unless": "neither party shall be liable|not be liable|shall not exceed"
+    }
+  },
+  {
+    "policy_id": "POL-NDA-005",
+    "title": "No one-sided indemnity",
+    "section": "Indemnification",
+    "default_severity": "Critical",
+    "text": "Northwind must not give an indemnity unless it is mutual and capped. One-sided or uncapped indemnification obligations are prohibited.",
+    "mock_rule": {
+      "type": "forbidden",
+      "pattern": "northwind (?:shall|will|agrees to) (?:fully |promptly )?(?:indemnify|defend|hold harmless)",
+      "message": "Northwind is giving a one-sided indemnity",
+      "fix": "Remove the indemnity, or make it mutual and subject to the agreed liability cap."
+    }
+  },
+  {
+    "policy_id": "POL-NDA-006",
+    "title": "Minimum termination notice",
+    "section": "Termination",
+    "default_severity": "Medium",
+    "text": "Either party must be able to terminate an NDA for convenience on at least thirty (30) days' written notice. Notice periods shorter than thirty days must not be agreed.",
+    "mock_rule": {
+      "type": "min_duration",
+      "days": 30,
+      "topic": "terminat.{0,100}notice|notice.{0,100}terminat",
+      "fix_phrase": "thirty (30) days"
+    }
+  },
+  {
+    "policy_id": "POL-NDA-007",
+    "title": "Personal data safeguards",
+    "section": "Data Protection",
+    "default_severity": "High",
+    "text": "Where an NDA involves personal data, it must require compliance with applicable data protection laws and a data processing agreement where required. Silence on personal data handling is not acceptable.",
+    "mock_rule": {
+      "type": "required_if",
+      "topic": "personal (?:data|information)|personally identifiable",
+      "required": "data protection|gdpr|data processing agreement|privacy law",
+      "message": "The clause allows sharing personal data without requiring data protection compliance",
+      "fix": "Each party shall comply with all applicable data protection laws and, where required, the parties shall enter into a data processing agreement before any personal data is shared."
+    }
+  },
+  {
+    "policy_id": "POL-NDA-008",
+    "title": "Return or destruction deadline",
+    "section": "Return of Information",
+    "default_severity": "Medium",
+    "text": "Confidential Information must be returned or destroyed within thirty (30) days of written request or termination. Retention periods longer than thirty days are not permitted, except for legally mandated archival copies.",
+    "mock_rule": {
+      "type": "max_duration",
+      "days": 30,
+      "topic": "return|destr",
+      "fix_phrase": "thirty (30) days"
+    }
+  },
+  {
+    "policy_id": "POL-NDA-009",
+    "title": "Non-solicitation limit",
+    "section": "Restrictive Covenants",
+    "default_severity": "Medium",
+    "text": "Non-solicitation of employees must not exceed twelve (12) months and must exclude general advertisements. Longer non-solicitation periods are not allowed.",
+    "mock_rule": {
+      "type": "max_duration",
+      "days": 365,
+      "topic": "solicit",
+      "fix_phrase": "twelve (12) months"
+    }
+  },
+  {
+    "policy_id": "POL-NDA-010",
+    "title": "No non-compete or exclusivity",
+    "section": "Restrictive Covenants",
+    "default_severity": "High",
+    "text": "An NDA must not contain non-compete, exclusivity, or standstill obligations that restrict Northwind's business. Such restrictions must be negotiated in a separate commercial agreement.",
+    "mock_rule": {
+      "type": "forbidden",
+      "pattern": "exclusivity|exclusive(?:ly)? (?:deal|dealing|supplier|relationship|right to)|deal(?:s|ing)? exclusively|non-?compet|standstill|shall not (?:engage in|compete)",
+      "message": "The clause imposes a non-compete or exclusivity obligation on Northwind",
+      "fix": "Delete the exclusivity or non-compete obligation; any such commitment belongs in a separate commercial agreement."
+    }
+  },
+  {
+    "policy_id": "POL-NDA-011",
+    "title": "Assignment requires consent",
+    "section": "Assignment",
+    "default_severity": "Medium",
+    "text": "Neither party may assign an NDA without the prior written consent of the other party. Free assignment, including to affiliates, is not permitted. A clause that requires consent for every assignment complies; an exception for a successor in a merger is optional.",
+    "mock_rule": {
+      "type": "forbidden",
+      "pattern": "(?:may|can|shall be entitled to) (?:freely )?assign.{0,100}without.{0,40}consent|freely assign",
+      "unless": "neither party|no party|shall not assign|may not assign|not (?:be )?assign",
+      "message": "The clause allows assignment without the other party's consent",
+      "fix": "Neither party may assign this Agreement without the prior written consent of the other party."
+    }
+  },
+  {
+    "policy_id": "POL-NDA-012",
+    "title": "Right to injunctive relief",
+    "section": "Remedies",
+    "default_severity": "High",
+    "text": "Northwind must retain the right to seek injunctive and equitable relief for any breach of confidentiality. Waivers of injunctive or equitable relief are prohibited.",
+    "mock_rule": {
+      "type": "forbidden",
+      "pattern": "waiv\\w*.{0,60}(?:injunctive|equitable)|(?:injunctive|equitable).{0,40}(?:waived|shall not be available)|no (?:injunctive|equitable) relief|(?:shall|may) not (?:seek|apply for|obtain).{0,30}(?:injunct|equitable)",
+      "message": "The clause waives the right to injunctive or equitable relief",
+      "fix": "Each party acknowledges that damages may be an inadequate remedy and that the other party may seek injunctive or other equitable relief for any breach of this Agreement."
+    }
+  },
+  {
+    "policy_id": "POL-NDA-013",
+    "title": "No residuals clause",
+    "section": "Use Restrictions",
+    "default_severity": "High",
+    "text": "Residuals clauses that permit use of information retained in unaided memory are not permitted. The receiving party may not use Confidential Information for any purpose other than the agreed purpose.",
+    "mock_rule": {
+      "type": "forbidden",
+      "pattern": "residual|unaided memory|retained in (?:the )?(?:memory|minds?)",
+      "message": "The clause contains a residuals right allowing use of information retained in memory",
+      "fix": "Delete the residuals language. The Receiving Party shall use Confidential Information solely for the Purpose."
+    }
+  },
+  {
+    "policy_id": "POL-NDA-014",
+    "title": "Court jurisdiction, no binding arbitration",
+    "section": "Dispute Resolution",
+    "default_severity": "Low",
+    "text": "Disputes must be resolved before the courts of the agreed governing-law jurisdiction. Binding arbitration requires approval from the Legal department.",
+    "mock_rule": {
+      "type": "forbidden",
+      "pattern": "binding arbitration|submitted to arbitration|resolved by arbitration|arbitrat\\w+ (?:tribunal|panel|rules)",
+      "message": "The clause requires binding arbitration instead of court resolution",
+      "fix": "Any dispute arising out of this Agreement shall be subject to the exclusive jurisdiction of the courts of the governing-law jurisdiction."
+    }
+  },
+  {
+    "policy_id": "POL-NDA-015",
+    "title": "Notice before compelled disclosure",
+    "section": "Permitted Disclosure",
+    "default_severity": "Medium",
+    "text": "Where disclosure is required by law, the recipient must give Northwind prompt prior written notice and cooperate in seeking protective measures. Clauses permitting compelled disclosure without notice are not permitted.",
+    "mock_rule": {
+      "type": "required_if",
+      "topic": "required by law|compelled|subpoena|court order|legal process|government",
+      "required": "(?:prompt|prior|immediate|written) notice|notify|notice to",
+      "message": "The clause permits compelled disclosure without requiring prior notice to the disclosing party",
+      "fix": "The Receiving Party shall give the Disclosing Party prompt prior written notice of any compelled disclosure and cooperate in seeking a protective order."
+    }
+  },
+  {
+    "policy_id": "POL-NDA-016",
+    "title": "Broad definition of Confidential Information",
+    "section": "Definitions",
+    "default_severity": "Medium",
+    "text": "Confidential Information must not be limited to information that is marked or designated as confidential. The definition must cover information that a reasonable person would understand to be confidential.",
+    "mock_rule": {
+      "type": "forbidden",
+      "pattern": "(?:only|solely|exclusively).{0,60}(?:marked|designated|labell?ed|identified in writing)",
+      "message": "The definition covers only information that is expressly marked as confidential",
+      "fix": "Confidential Information means any non-public information that a reasonable person would understand to be confidential, whether or not it is marked as such."
+    }
+  },
+  {
+    "policy_id": "POL-NDA-017",
+    "title": "No on-site audit rights",
+    "section": "Audit",
+    "default_severity": "Medium",
+    "text": "Northwind must not grant the counterparty on-site audit or inspection rights under an NDA. Compliance may be evidenced by a written certification from an officer.",
+    "mock_rule": {
+      "type": "forbidden",
+      "pattern": "audit|inspect(?:ion)?.{0,30}(?:premises|facilities|systems)|on-?site",
+      "message": "The clause grants the counterparty audit or on-site inspection rights",
+      "fix": "Upon request, Northwind shall provide a written certification by an officer confirming compliance with this Agreement."
+    }
+  },
+  {
+    "policy_id": "POL-NDA-018",
+    "title": "Publicity requires consent",
+    "section": "Publicity",
+    "default_severity": "Low",
+    "text": "The counterparty must not use Northwind's name, logo, or trademarks, or announce the relationship, without Northwind's prior written consent. Publicity clauses permitting such use are not acceptable.",
+    "mock_rule": {
+      "type": "required_if",
+      "topic": "press release|logo|trademark|publicity|marketing|reference .{0,30}as a (?:client|customer)|announce",
+      "required": "prior written (?:consent|approval)",
+      "message": "The clause permits use of Northwind's name or announcements without Northwind's prior written consent",
+      "fix": "Neither party shall use the other's name, logo or trademarks, or issue any publicity about this Agreement, without the other party's prior written consent."
+    }
+  }
+]

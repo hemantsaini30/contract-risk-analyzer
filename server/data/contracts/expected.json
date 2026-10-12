@@ -1,0 +1,5 @@
+{
+  "01_apex_dynamics_nda": ["POL-NDA-001","POL-NDA-003","POL-NDA-004","POL-NDA-005","POL-NDA-006","POL-NDA-008","POL-NDA-013","POL-NDA-014","POL-NDA-016"],
+  "02_globex_nda": ["POL-NDA-001","POL-NDA-007","POL-NDA-009","POL-NDA-012","POL-NDA-015","POL-NDA-017","POL-NDA-018"],
+  "03_initech_nda": ["POL-NDA-010"]
+}

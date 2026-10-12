@@ -1,0 +1,18 @@
+{
+  "name": "contract-risk-analyzer",
+  "private": true,
+  "version": "1.0.0",
+  "description": "RAG-based contract risk analyzer grounded in company policies (PERN, JavaScript)",
+  "scripts": {
+    "install:all": "npm install && npm install --prefix server && npm install --prefix client",
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down",
+    "seed": "npm run seed --prefix server",
+    "dev": "concurrently -n server,client -c blue,green \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "eval": "npm run eval --prefix server",
+    "smoke": "npm run smoke --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}

@@ -1,0 +1,309 @@
+[
+  {
+    "id": "C01",
+    "clause": "The confidentiality obligations in this Agreement shall remain in effect for ten (10) years following expiration.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-001",
+        "severity": "Medium"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "C02",
+    "clause": "The Recipient's duty to protect the information will continue for thirty-six (36) months after termination of this Agreement.",
+    "expected": [],
+    "note": "boundary: compliant"
+  },
+  {
+    "id": "C03",
+    "clause": "The obligations of confidentiality under this Agreement shall be perpetual and shall never expire.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-002",
+        "severity": "High"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "C04",
+    "clause": "Obligations regarding trade secrets continue indefinitely for as long as the information qualifies as a trade secret under applicable law.",
+    "expected": [],
+    "note": "trap: compliant carve-out"
+  },
+  {
+    "id": "C05",
+    "clause": "This Agreement shall be governed by the laws of the State of California, USA.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-003",
+        "severity": "High"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "C06",
+    "clause": "This Agreement shall be governed by and construed in accordance with the laws of England and Wales.",
+    "expected": [],
+    "note": ""
+  },
+  {
+    "id": "C07",
+    "clause": "Northwind's total liability arising out of this Agreement shall be unlimited in amount.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-004",
+        "severity": "Critical"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "C08",
+    "clause": "Each party's aggregate liability under this Agreement shall not exceed USD 100,000 and neither party shall be liable for indirect or consequential damages.",
+    "expected": [],
+    "note": "trap: mentions consequential damages but compliant"
+  },
+  {
+    "id": "C09",
+    "clause": "Northwind shall indemnify and hold harmless the Counterparty against any claims arising from this Agreement.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-005",
+        "severity": "Critical"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "C10",
+    "clause": "Either party may terminate this Agreement by giving seven (7) days' written notice to the other party.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-006",
+        "severity": "Medium"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "C11",
+    "clause": "Either party may terminate this Agreement at any time upon sixty (60) days' prior written notice.",
+    "expected": [],
+    "note": ""
+  },
+  {
+    "id": "C12",
+    "clause": "Each party may exchange personal data of its employees for the Purpose without further restriction.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-007",
+        "severity": "High"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "C13",
+    "clause": "Where personal data is shared, each party shall comply with applicable data protection laws and enter into a data processing agreement.",
+    "expected": [],
+    "note": ""
+  },
+  {
+    "id": "C14",
+    "clause": "Within one hundred twenty (120) days of termination, the Receiving Party shall return or destroy all Confidential Information.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-008",
+        "severity": "Medium"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "C15",
+    "clause": "The Receiving Party shall return or destroy all Confidential Information within thirty (30) days following a written request.",
+    "expected": [],
+    "note": ""
+  },
+  {
+    "id": "C16",
+    "clause": "The Counterparty shall not solicit any employee of Northwind for employment for a period of eighteen (18) months after termination.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-009",
+        "severity": "Medium"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "C17",
+    "clause": "Northwind shall not compete with the Counterparty in respect of the Purpose and grants the Counterparty exclusivity for the term of this Agreement.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-010",
+        "severity": "High"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "C18",
+    "clause": "Either party may freely assign this Agreement to any affiliate without the other party's consent.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-011",
+        "severity": "Medium"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "C19",
+    "clause": "Neither party may assign this Agreement without the prior written consent of the other party.",
+    "expected": [],
+    "note": ""
+  },
+  {
+    "id": "C20",
+    "clause": "Each party waives its right to seek equitable relief for any breach of this Agreement.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-012",
+        "severity": "High"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "C21",
+    "clause": "Neither party shall be restricted from using residual information retained in the unaided memory of its personnel.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-013",
+        "severity": "High"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "C22",
+    "clause": "Any dispute arising under this Agreement shall be finally resolved by binding arbitration under the rules of the ICC.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-014",
+        "severity": "Low"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "C23",
+    "clause": "If required by law to disclose Confidential Information, the Receiving Party shall give the Disclosing Party prompt written notice before any disclosure.",
+    "expected": [],
+    "note": ""
+  },
+  {
+    "id": "C24",
+    "clause": "The Receiving Party may disclose Confidential Information to the extent compelled by a court order or government authority.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-015",
+        "severity": "Medium"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "C25",
+    "clause": "Confidential Information includes only written material that is expressly marked as Confidential by the Disclosing Party.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-016",
+        "severity": "Medium"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "C26",
+    "clause": "Confidential Information means any non-public information that a reasonable person would understand to be confidential, whether or not marked.",
+    "expected": [],
+    "note": ""
+  },
+  {
+    "id": "C27",
+    "clause": "The Counterparty may conduct on-site audits of Northwind's facilities on ten days' notice.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-017",
+        "severity": "Medium"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "C28",
+    "clause": "The Counterparty may issue press releases naming Northwind as a customer.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-018",
+        "severity": "Low"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "C29",
+    "clause": "Neither party shall use the other party's name or logo in any publicity without prior written consent.",
+    "expected": [],
+    "note": ""
+  },
+  {
+    "id": "C30",
+    "clause": "The Receiving Party shall use the Confidential Information solely for the Purpose and protect it with reasonable care.",
+    "expected": [],
+    "note": ""
+  },
+  {
+    "id": "C31",
+    "clause": "This Agreement is governed by the laws of Singapore, and any dispute shall be resolved by binding arbitration.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-003",
+        "severity": "High"
+      },
+      {
+        "policy_id": "POL-NDA-014",
+        "severity": "Low"
+      }
+    ],
+    "note": "two violations in one clause"
+  },
+  {
+    "id": "C32",
+    "clause": "Northwind accepts responsibility for any and all losses of the Counterparty, without any ceiling on the amount.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-004",
+        "severity": "Critical"
+      }
+    ],
+    "note": "HARD: paraphrased wording, rule-based mock will miss; real LLM should catch"
+  },
+  {
+    "id": "C33",
+    "clause": "The Recipient's duty to keep the information secret shall end only after a full decade has passed from termination.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-001",
+        "severity": "Medium"
+      }
+    ],
+    "note": "HARD: 'decade' instead of a number; mock will miss"
+  }
+]

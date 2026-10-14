@@ -1,0 +1,118 @@
+{
+  "set": "holdout3",
+  "when": "2026-10-13T12:04:16.551Z",
+  "llm": "groq",
+  "embeddings": "gemini",
+  "retrievalMode": "vector",
+  "topK": 5,
+  "policies": 49,
+  "retrieval": {
+    "vector": {
+      "recall@1": 0.8214285714285714,
+      "recall@3": 0.9642857142857143,
+      "recall@5": 1,
+      "recall@8": 1,
+      "notInTopK": []
+    },
+    "keyword": {
+      "recall@1": 0.5,
+      "recall@3": 0.75,
+      "recall@5": 0.8214285714285714,
+      "recall@8": 0.9285714285714286,
+      "notInTopK": [
+        "H3-16:NDA-003",
+        "H3-19:NDA-015",
+        "H3-33:NDA-007",
+        "H3-39:SEC-002",
+        "H3-40:MSA-003"
+      ]
+    },
+    "hybrid": {
+      "recall@1": 0.75,
+      "recall@3": 0.8928571428571429,
+      "recall@5": 0.9642857142857143,
+      "recall@8": 1,
+      "notInTopK": [
+        "H3-19:NDA-015"
+      ]
+    },
+    "hybrid_rerank": {
+      "recall@1": 0.5,
+      "recall@3": 0.8928571428571429,
+      "recall@5": 0.9285714285714286,
+      "recall@8": 0.9642857142857143,
+      "notInTopK": [
+        "H3-19:NDA-015",
+        "H3-39:SEC-002"
+      ]
+    }
+  },
+  "detection": {
+    "precision": 1,
+    "recall": 0.9642857142857143,
+    "f1": 0.9818181818181818,
+    "severityAccuracy": 1,
+    "citationAccuracy": 0.967741935483871,
+    "cleanFlagged": 0,
+    "cleanTotal": 22,
+    "acceptedExtras": 4
+  },
+  "misses": [
+    "H3-31 missed POL-NDA-012  [policy WAS retrieved, the LLM said no]"
+  ],
+  "falseAlarms": [],
+  "sevWrong": [],
+  "unverified": [
+    "H3-29 POL-NDA-004: POLICY quote not found in policy text -> \"Liability must be capped at a fixed amount\""
+  ],
+  "confidenceSweep": [
+    {
+      "threshold": 0,
+      "precision": 1,
+      "recall": 0.9642857142857143,
+      "f1": 0.9818181818181818,
+      "cleanFlagged": 0,
+      "cleanTotal": 22
+    },
+    {
+      "threshold": 0.7,
+      "precision": 1,
+      "recall": 0.9285714285714286,
+      "f1": 0.962962962962963,
+      "cleanFlagged": 0,
+      "cleanTotal": 22
+    },
+    {
+      "threshold": 0.8,
+      "precision": 1,
+      "recall": 0.9285714285714286,
+      "f1": 0.962962962962963,
+      "cleanFlagged": 0,
+      "cleanTotal": 22
+    },
+    {
+      "threshold": 0.85,
+      "precision": 1,
+      "recall": 0.9285714285714286,
+      "f1": 0.962962962962963,
+      "cleanFlagged": 0,
+      "cleanTotal": 22
+    },
+    {
+      "threshold": 0.9,
+      "precision": 1,
+      "recall": 0.9285714285714286,
+      "f1": 0.962962962962963,
+      "cleanFlagged": 0,
+      "cleanTotal": 22
+    },
+    {
+      "threshold": 0.95,
+      "precision": 1,
+      "recall": 0.9285714285714286,
+      "f1": 0.962962962962963,
+      "cleanFlagged": 0,
+      "cleanTotal": 22
+    }
+  ]
+}

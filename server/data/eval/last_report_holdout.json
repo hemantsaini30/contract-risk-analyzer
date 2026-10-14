@@ -1,0 +1,119 @@
+{
+  "set": "holdout",
+  "when": "2026-10-13T16:30:49.540Z",
+  "llm": "groq",
+  "embeddings": "gemini",
+  "retrievalMode": "vector",
+  "topK": 5,
+  "policies": 49,
+  "retrieval": {
+    "vector": {
+      "recall@1": 0.7647058823529411,
+      "recall@3": 0.9411764705882353,
+      "recall@5": 1,
+      "recall@8": 1,
+      "notInTopK": []
+    },
+    "keyword": {
+      "recall@1": 0.4117647058823529,
+      "recall@3": 0.7058823529411765,
+      "recall@5": 0.8235294117647058,
+      "recall@8": 0.8823529411764706,
+      "notInTopK": [
+        "H03:NDA-003",
+        "H07:NDA-005",
+        "H10:NDA-007"
+      ]
+    },
+    "hybrid": {
+      "recall@1": 0.6470588235294118,
+      "recall@3": 0.8823529411764706,
+      "recall@5": 0.9411764705882353,
+      "recall@8": 1,
+      "notInTopK": [
+        "H10:NDA-007"
+      ]
+    },
+    "hybrid_rerank": {
+      "recall@1": 0.35294117647058826,
+      "recall@3": 0.8823529411764706,
+      "recall@5": 0.8823529411764706,
+      "recall@8": 1,
+      "notInTopK": [
+        "H07:NDA-005",
+        "H10:NDA-007"
+      ]
+    }
+  },
+  "detection": {
+    "precision": 0.9375,
+    "recall": 0.8823529411764706,
+    "f1": 0.9090909090909091,
+    "severityAccuracy": 1,
+    "citationAccuracy": 0.9375,
+    "cleanFlagged": 0,
+    "cleanTotal": 10,
+    "acceptedExtras": 0
+  },
+  "misses": [
+    "H24 missed POL-NDA-003  [policy WAS retrieved, the LLM said no]  (two violations in one clause)",
+    "H24 missed POL-NDA-014  [policy WAS retrieved, the LLM said no]  (two violations in one clause)"
+  ],
+  "falseAlarms": [
+    "H11 flagged POL-NDA-001 (confidence 0.94): Indefinite retention could extend confidentiality obligations beyond the three‑year limit set by policy.\n      clause: \"The Receiving Party may retain copies of the Confidential Information for as long as it considers necessary fo\""
+  ],
+  "sevWrong": [],
+  "unverified": [
+    "H11 POL-NDA-008: POLICY quote not found in policy text -> \"Retention periods longer than thirty (30) days are not permitted\""
+  ],
+  "confidenceSweep": [
+    {
+      "threshold": 0,
+      "precision": 0.9375,
+      "recall": 0.8823529411764706,
+      "f1": 0.9090909090909091,
+      "cleanFlagged": 0,
+      "cleanTotal": 10
+    },
+    {
+      "threshold": 0.7,
+      "precision": 0.9333333333333333,
+      "recall": 0.8235294117647058,
+      "f1": 0.8749999999999999,
+      "cleanFlagged": 0,
+      "cleanTotal": 10
+    },
+    {
+      "threshold": 0.8,
+      "precision": 0.9333333333333333,
+      "recall": 0.8235294117647058,
+      "f1": 0.8749999999999999,
+      "cleanFlagged": 0,
+      "cleanTotal": 10
+    },
+    {
+      "threshold": 0.85,
+      "precision": 0.9333333333333333,
+      "recall": 0.8235294117647058,
+      "f1": 0.8749999999999999,
+      "cleanFlagged": 0,
+      "cleanTotal": 10
+    },
+    {
+      "threshold": 0.9,
+      "precision": 0.9333333333333333,
+      "recall": 0.8235294117647058,
+      "f1": 0.8749999999999999,
+      "cleanFlagged": 0,
+      "cleanTotal": 10
+    },
+    {
+      "threshold": 0.95,
+      "precision": 1,
+      "recall": 0.8235294117647058,
+      "f1": 0.9032258064516129,
+      "cleanFlagged": 0,
+      "cleanTotal": 10
+    }
+  ]
+}

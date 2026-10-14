@@ -74,6 +74,10 @@ CREATE TABLE IF NOT EXISTS findings (
   created_at TIMESTAMPTZ DEFAULT now()
 );
 CREATE INDEX IF NOT EXISTS findings_contract_idx ON findings(contract_id);
+
+-- contract type filtering (added later; safe to re-run)
+ALTER TABLE policies ADD COLUMN IF NOT EXISTS applies_to TEXT[] NOT NULL DEFAULT '{nda,supplier}';
+ALTER TABLE contracts ADD COLUMN IF NOT EXISTS contract_type TEXT;
 `;
 
 export async function initDb() {

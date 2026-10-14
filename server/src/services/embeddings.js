@@ -1,3 +1,7 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import { fileURLToPath } from 'node:url';
 import { config, EMBED_DIM } from '../config.js';
 import { tokenize, stem } from '../utils/text.js';
 
@@ -53,11 +57,35 @@ function mockEmbedOne(text) {
 }
 
 /* ---------- Real providers ---------- */
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+/** POST with waiting + retry on rate limits (429), server errors (5xx) and network blips. */
 async function postJson(url, body, headers = {}) {
-  const res = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json', ...headers }, body: JSON.stringify(body) });
-  const raw = await res.text();
-  if (!res.ok) throw new Error(`Embedding API ${res.status}: ${raw.slice(0, 300)}`);
-  return JSON.parse(raw);
+  let rate = 0, other = 0;
+  while (true) {
+    let res, raw;
+    try {
+      res = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json', ...headers }, body: JSON.stringify(body) });
+      raw = await res.text();
+    } catch (e) {
+      if (++other > 3) throw e;
+      console.log(`[embed] network error (${e.message}). Retrying (${other}/3)...`);
+      await sleep(2000 * other);
+      continue;
+    }
+    if (res.ok) return JSON.parse(raw);
+    if (res.status === 429) {
+      if (/PerDay|per day/i.test(raw)) throw new Error('Embedding API: DAILY free quota used up. Try again tomorrow, or enable billing. (Embeddings are cached on disk, so finished texts will not be asked again.)');
+      if (++rate > 5) throw new Error(`Embedding API 429: ${raw.slice(0, 300)}`);
+      const m = raw.match(/retryDelay"\s*:\s*"(\d+(?:\.\d+)?)s/) || raw.match(/retry in (\d+(?:\.\d+)?)s/i);
+      const wait = Math.min(Math.ceil((m ? Number(m[1]) : 30) * 1000) + 1000, 90_000);
+      console.log(`[embed] rate limited (429). Waiting ${Math.round(wait / 1000)}s then retrying (${rate}/5)...`);
+      await sleep(wait);
+      continue;
+    }
+    if (res.status >= 500 && ++other <= 3) { await sleep(2000 * other); continue; }
+    throw new Error(`Embedding API ${res.status}: ${raw.slice(0, 300)}`);
+  }
 }
 
 async function openaiEmbed(texts) {
@@ -87,12 +115,38 @@ async function geminiEmbed(texts) {
   });
 }
 
+/* Disk cache: the same text + provider + model is never sent to the API twice.
+   Saves free-tier quota when you re-run evaluations or re-analyse a contract. Disable with EMBED_CACHE=0. */
+const CACHE_FILE = process.env.EMBED_CACHE_FILE || path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../data/.embed_cache.json');
+const CACHE_ON = process.env.EMBED_CACHE !== '0';
+let cache = null;
+function loadCache() {
+  if (cache) return cache;
+  try { cache = JSON.parse(fs.readFileSync(CACHE_FILE, 'utf8')); } catch { cache = {}; }
+  return cache;
+}
+const cacheKey = (text) => {
+  const model = config.embedProvider === 'openai' ? config.openaiEmbedModel : config.geminiEmbedModel;
+  return crypto.createHash('sha1').update(`${config.embedProvider}|${model}|${EMBED_DIM}|${text}`).digest('hex');
+};
+
 /** embed(["text", ...]) -> number[][]  (each vector has EMBED_DIM numbers) */
 export async function embed(texts) {
   if (!texts.length) return [];
   if (config.embedProvider === 'mock') return texts.map(mockEmbedOne);
-  const fn = config.embedProvider === 'openai' ? openaiEmbed : geminiEmbed;
-  const out = [];
-  for (let i = 0; i < texts.length; i += 50) out.push(...(await fn(texts.slice(i, i + 50))));
-  return out;
+
+  const c = CACHE_ON ? loadCache() : {};
+  const keys = texts.map(cacheKey);
+  const missing = [...new Set(texts.map((t, i) => (c[keys[i]] ? null : i)).filter((i) => i !== null).map((i) => texts[i]))];
+
+  if (missing.length) {
+    const fn = config.embedProvider === 'openai' ? openaiEmbed : geminiEmbed;
+    for (let i = 0; i < missing.length; i += 50) {
+      const batch = missing.slice(i, i + 50);
+      const vecs = await fn(batch);
+      batch.forEach((t, j) => { c[cacheKey(t)] = vecs[j]; });
+      if (CACHE_ON) fs.writeFileSync(CACHE_FILE, JSON.stringify(c)); // save after every batch so a crash loses nothing
+    }
+  }
+  return texts.map((_, i) => c[keys[i]]);
 }

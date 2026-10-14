@@ -35,14 +35,29 @@ const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
  */
 export function locateQuote(text, quote) {
   if (!quote || !text) return null;
-  const cleanQuote = foldChars(quote)
-    .replace(/(\.\.\.|\u2026)/g, ' ')
-    .replace(/^[\s"'`]+|[\s"'`]+$/g, '');
-  const words = cleanQuote.split(/\s+/).filter(Boolean);
-  if (words.length < 3) return null;
-  const re = new RegExp(words.map(escapeRe).join('\\s+'), 'i');
-  const m = re.exec(foldChars(text));
-  return m ? [m.index, m.index + m[0].length] : null;
+  const trim = (x) => x.replace(/^[\s"'`]+|[\s"'`]+$/g, '');
+  // A quote may skip words with "..." (e.g. "must not ... announce the relationship").
+  // That is accepted ONLY if every fragment exists verbatim and the fragments appear in the same order.
+  const parts = trim(foldChars(quote)).split(/\s*(?:\.\.\.|\u2026)\s*/).map(trim).filter(Boolean);
+  if (!parts.length) return null;
+  const wc = (x) => x.split(/\s+/).length;
+  if (parts.join(' ').split(/\s+/).length < 3) return null;
+  if (parts.length > 1 && (parts.some((x) => wc(x) < 2) || Math.max(...parts.map(wc)) < 3)) return null;
+
+  const haystack = foldChars(text);
+  let pos = 0;
+  let first = null;
+  let last = 0;
+  for (const part of parts) {
+    const re = new RegExp(part.split(/\s+/).map(escapeRe).join('\\s+'), 'i');
+    const m = re.exec(haystack.slice(pos));
+    if (!m) return null;
+    const start = pos + m.index;
+    if (first === null) first = start;
+    last = start + m[0].length;
+    pos = last;
+  }
+  return [first, last];
 }
 
 export function splitSentences(text) {

@@ -86,7 +86,9 @@ async function callWithRetry(call, system, user) {
         const wait = retryDelayMs(e);
         console.log(`[llm] rate limited (429). Waiting ${Math.round(wait / 1000)}s then retrying (${rateRetries}/6)...`);
         await sleep(wait);
-      } else if (e.status >= 500 && ++serverRetries <= 3) {
+      } else if ((e.status >= 500 || !e.status) && ++serverRetries <= 3) {
+        // 5xx from the provider, or a network blip ("fetch failed", DNS, dropped connection): wait and retry
+        console.log(`[llm] ${e.status ? `server error ${e.status}` : `network error (${e.message})`}. Retrying (${serverRetries}/3)...`);
         await sleep(2000 * serverRetries);
       } else {
         throw e; // 400/401/403/404 etc: a retry will not help

@@ -1,0 +1,118 @@
+{
+  "set": "labeled",
+  "when": "2026-10-14T16:42:04.418Z",
+  "llm": "groq",
+  "embeddings": "gemini",
+  "retrievalMode": "vector",
+  "topK": 5,
+  "policies": 49,
+  "retrieval": {
+    "vector": {
+      "recall@1": 0.782608695652174,
+      "recall@3": 0.9565217391304348,
+      "recall@5": 1,
+      "recall@8": 1,
+      "notInTopK": []
+    },
+    "keyword": {
+      "recall@1": 0.782608695652174,
+      "recall@3": 0.8695652173913043,
+      "recall@5": 0.9130434782608695,
+      "recall@8": 0.9130434782608695,
+      "notInTopK": [
+        "C09:NDA-005",
+        "C24:NDA-015"
+      ]
+    },
+    "hybrid": {
+      "recall@1": 0.8260869565217391,
+      "recall@3": 0.9565217391304348,
+      "recall@5": 0.9565217391304348,
+      "recall@8": 1,
+      "notInTopK": [
+        "C24:NDA-015"
+      ]
+    },
+    "hybrid_rerank": {
+      "recall@1": 0.782608695652174,
+      "recall@3": 0.9130434782608695,
+      "recall@5": 0.9565217391304348,
+      "recall@8": 1,
+      "notInTopK": [
+        "C24:NDA-015"
+      ]
+    }
+  },
+  "detection": {
+    "precision": 0.8214285714285714,
+    "recall": 1,
+    "f1": 0.9019607843137255,
+    "severityAccuracy": 1,
+    "citationAccuracy": 0.9666666666666667,
+    "cleanFlagged": 3,
+    "cleanTotal": 12,
+    "acceptedExtras": 2
+  },
+  "misses": [],
+  "falseAlarms": [
+    "C08 flagged POL-MSA-007 (confidence 0.95): The clause caps the supplier's liability at $100,000, which is below the policy minimum of $500,000 for supplier liability caps.\n      clause: \"Each party's aggregate liability under this Agreement shall not exceed USD 100,000 and neither party shall be \"",
+    "C10 flagged POL-MSA-015 (confidence 0.95): The clause allows the Supplier to terminate for convenience, which the policy expressly prohibits.\n      clause: \"Either party may terminate this Agreement by giving seven (7) days' written notice to the other party.\"",
+    "C11 flagged POL-MSA-015 (confidence 0.95): The clause grants the Supplier the right to terminate for convenience, which the policy expressly prohibits.\n      clause: \"Either party may terminate this Agreement at any time upon sixty (60) days' prior written notice.\"",
+    "C14 flagged POL-SEC-004 (confidence 0.98): The clause allows a 120‑day period, which is longer than the 30‑day deadline mandated for deletion or return of Northwind data.\n      clause: \"Within one hundred twenty (120) days of termination, the Receiving Party shall return or destroy all Confident\"",
+    "C15 flagged POL-SEC-004 (confidence 0.95): The policy requires a written confirmation of deletion/return, which the clause omits, creating a compliance gap.\n      clause: \"The Receiving Party shall return or destroy all Confidential Information within thirty (30) days following a w\""
+  ],
+  "sevWrong": [],
+  "unverified": [
+    "C32 POL-NDA-004: POLICY quote not found in policy text -> \"Liability must be capped at a fixed amount\""
+  ],
+  "confidenceSweep": [
+    {
+      "threshold": 0,
+      "precision": 0.8214285714285714,
+      "recall": 1,
+      "f1": 0.9019607843137255,
+      "cleanFlagged": 3,
+      "cleanTotal": 12
+    },
+    {
+      "threshold": 0.7,
+      "precision": 0.8148148148148148,
+      "recall": 0.9565217391304348,
+      "f1": 0.8800000000000001,
+      "cleanFlagged": 3,
+      "cleanTotal": 12
+    },
+    {
+      "threshold": 0.8,
+      "precision": 0.8148148148148148,
+      "recall": 0.9565217391304348,
+      "f1": 0.8800000000000001,
+      "cleanFlagged": 3,
+      "cleanTotal": 12
+    },
+    {
+      "threshold": 0.85,
+      "precision": 0.8148148148148148,
+      "recall": 0.9565217391304348,
+      "f1": 0.8800000000000001,
+      "cleanFlagged": 3,
+      "cleanTotal": 12
+    },
+    {
+      "threshold": 0.9,
+      "precision": 0.8148148148148148,
+      "recall": 0.9565217391304348,
+      "f1": 0.8800000000000001,
+      "cleanFlagged": 3,
+      "cleanTotal": 12
+    },
+    {
+      "threshold": 0.95,
+      "precision": 0.8148148148148148,
+      "recall": 0.9565217391304348,
+      "f1": 0.8800000000000001,
+      "cleanFlagged": 3,
+      "cleanTotal": 12
+    }
+  ]
+}

@@ -12,17 +12,18 @@ const json = (method, data) => ({ method, headers: { 'Content-Type': 'applicatio
 export const api = {
   health: () => request('/health'),
   examples: () => request('/check/examples'),
-  check: (clause) => request('/check', json('POST', { clause })),
+  check: (clause, contract_type) => request('/check', json('POST', { clause, contract_type })),
   contracts: () => request('/contracts'),
   contract: (id) => request(`/contracts/${id}`),
   samples: () => request('/contracts/samples'),
-  fromSample: (filename) => request('/contracts/from-sample', json('POST', { filename })),
-  upload: (file) => {
+  fromSample: (filename, contract_type) => request('/contracts/from-sample', json('POST', { filename, contract_type })),
+  upload: (file, contract_type) => {
     const fd = new FormData();
+    fd.append('contract_type', contract_type || 'auto');
     fd.append('file', file);
     return request('/contracts', { method: 'POST', body: fd });
   },
-  reanalyze: (id) => request(`/contracts/${id}/reanalyze`, { method: 'POST' }),
+  reanalyze: (id, contract_type) => request(`/contracts/${id}/reanalyze`, contract_type ? json('POST', { contract_type }) : { method: 'POST' }),
   remove: (id) => request(`/contracts/${id}`, { method: 'DELETE' }),
   reportUrl: (id) => `${BASE}/contracts/${id}/report`,
   policies: () => request('/policies'),

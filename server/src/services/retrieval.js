@@ -1,6 +1,8 @@
 import { query, toVector } from '../db/pool.js';
 import { tokenize } from '../utils/text.js';
 import { embed } from './embeddings.js';
+import { config } from '../config.js';
+import { normalizeType } from './contractType.js';
 
 /**
  * Hybrid retrieval of policy rules for one clause.
@@ -14,12 +16,12 @@ import { embed } from './embeddings.js';
 const POOL = 8;
 const RRF_K = 60;
 
-async function vectorSearch(embedding) {
+async function vectorSearch(embedding, contractType) {
   const { rows } = await query(
     `SELECT policy_id, 1 - (embedding <=> $1::vector) AS score
-       FROM policies WHERE embedding IS NOT NULL
+       FROM policies WHERE embedding IS NOT NULL AND ($2::text IS NULL OR $2 = ANY(applies_to))
       ORDER BY embedding <=> $1::vector LIMIT ${POOL}`,
-    [toVector(embedding)]
+    [toVector(embedding), contractType]
   );
   return rows;
 }
@@ -38,15 +40,15 @@ async function docFreq() {
  * Plain ts_rank treats every word equally, so a common word like "Northwind" would outrank
  * a rare, meaningful word like "indemnify". We weight each matching word by its rarity instead.
  */
-async function keywordSearch(clauseText) {
+async function keywordSearch(clauseText, contractType) {
   const { rows: lex } = await query(`SELECT DISTINCT unnest(tsvector_to_array(to_tsvector('english', $1))) AS w`, [clauseText]);
   const { n, df } = await docFreq();
   const idf = (w) => { const d = df.get(w) || 0; return d ? Math.log(1 + (n - d + 0.5) / (d + 0.5)) : 0; };
   const terms = lex.map((r) => r.w).filter((w) => /^[a-z0-9]+$/.test(w) && idf(w) > 0);
   if (!terms.length) return [];
   const { rows } = await query(
-    `SELECT policy_id, tsvector_to_array(tsv) AS lex FROM policies WHERE tsv @@ to_tsquery('simple', $1)`,
-    [terms.join(' | ')]
+    `SELECT policy_id, tsvector_to_array(tsv) AS lex FROM policies WHERE tsv @@ to_tsquery('simple', $1) AND ($2::text IS NULL OR $2 = ANY(applies_to))`,
+    [terms.join(' | '), contractType]
   );
   return rows
     .map((r) => ({ policy_id: r.policy_id, score: terms.filter((t) => r.lex.includes(t)).reduce((s, t) => s + idf(t), 0) }))
@@ -67,12 +69,13 @@ function rerank(clauseText, candidates) {
   return candidates.sort((a, b) => b.scores.rerank - a.scores.rerank);
 }
 
-export async function retrieve(clauseText, { mode = 'hybrid_rerank', topK = 4, embedding } = {}) {
+export async function retrieve(clauseText, { mode = config.retrievalMode, topK = 4, embedding, contractType = null } = {}) {
+  contractType = normalizeType(contractType); // 'nda' | 'supplier' | null (null = search all policies)
   const useVec = mode !== 'keyword';
   const useKw = mode !== 'vector';
   const emb = useVec ? embedding || (await embed([clauseText]))[0] : null;
 
-  const [vec, kw] = await Promise.all([useVec ? vectorSearch(emb) : [], useKw ? keywordSearch(clauseText) : []]);
+  const [vec, kw] = await Promise.all([useVec ? vectorSearch(emb, contractType) : [], useKw ? keywordSearch(clauseText, contractType) : []]);
 
   const map = new Map();
   const touch = (policy_id) => {

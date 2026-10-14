@@ -7,6 +7,7 @@ export default function Check() {
   const [clause, setClause] = useState('');
   const [examples, setExamples] = useState([]);
   const [known, setKnown] = useState(null); // the known right answer for a loaded example
+  const [ctype, setCtype] = useState('nda'); // which family of policies to check against
   const [result, setResult] = useState(null);
   const [checkedText, setCheckedText] = useState('');
   const [busy, setBusy] = useState(false);
@@ -20,12 +21,13 @@ export default function Check() {
     if (!ex) { setKnown(null); return; }
     setClause(ex.clause);
     setKnown(ex);
+    setCtype(ex.contract_type || 'nda');
   }
 
   async function run() {
     setBusy(true); setError(''); setResult(null);
     try {
-      const r = await api.check(clause);
+      const r = await api.check(clause, ctype === 'auto' ? null : ctype);
       setResult(r);
       setCheckedText(clause);
     } catch (e) {
@@ -42,8 +44,9 @@ export default function Check() {
   const knownApplies = known && result && checkedText === known.clause;
   let match = null;
   if (knownApplies) {
+    const extras = new Set(known.acceptable_extra || []);
     const want = known.expected.map((e) => e.policy_id).sort().join(',');
-    const got = result.findings.map((f) => f.policy_id).sort().join(',');
+    const got = result.findings.map((f) => f.policy_id).filter((id) => !extras.has(id)).sort().join(',');
     match = want === got;
   }
 
@@ -68,6 +71,17 @@ export default function Check() {
             </label>
           </p>
         )}
+
+        <p>
+          <label>Contract type:{' '}
+            <select value={ctype} onChange={(e) => setCtype(e.target.value)}>
+              <option value="nda">NDA / confidentiality agreement</option>
+              <option value="supplier">Supplier / services agreement</option>
+              <option value="auto">Not sure (check against all policies)</option>
+            </select>
+          </label>
+          <span className="muted small"> The clause is only compared with policies for that type.</span>
+        </p>
 
         <textarea
           rows={5}
@@ -96,7 +110,7 @@ export default function Check() {
                 : '✅ No conflict found with the retrieved policies'}
             </h2>
             <p className="muted small">
-              Checked against {result.policies_checked.map((p) => p.policy_id).join(', ')} · LLM: {result.models.llm} · embeddings: {result.models.embeddings} · {(result.ms / 1000).toFixed(1)}s
+              Checked against {result.policies_checked.map((p) => p.policy_id).join(', ')} · type: {result.contract_type || 'any'} · LLM: {result.models.llm} · embeddings: {result.models.embeddings} · {(result.ms / 1000).toFixed(1)}s
             </p>
             {knownApplies && (
               <p>
@@ -104,6 +118,7 @@ export default function Check() {
                 {known.expected.length
                   ? known.expected.map((e) => `${e.policy_id} (${e.severity})`).join(', ')
                   : 'compliant, no conflict'}
+                {known.acceptable_extra?.length ? ` (also acceptable: ${known.acceptable_extra.join(', ')})` : ''}
                 {known.note ? ` · note: ${known.note}` : ''}
                 {' → '}
                 <b style={{ color: match ? '#16a34a' : '#dc2626' }}>{match ? 'system is RIGHT ✔' : 'system is WRONG ✘'}</b>

@@ -19,6 +19,7 @@ export const config = {
   geminiEmbedModel: env.GEMINI_EMBED_MODEL || 'gemini-embedding-001',
   anthropicModel: env.ANTHROPIC_LLM_MODEL || 'claude-sonnet-5-5',
   groqModel: env.GROQ_LLM_MODEL || 'llama-3.3-70b-versatile',
+  retrievalMode: (env.RETRIEVAL_MODE || 'hybrid_rerank').toLowerCase(), // vector | keyword | hybrid | hybrid_rerank
   topK: Number(env.TOP_K) || 4,
   concurrency: Number(env.CONCURRENCY) || 3,
   minConfidence: Number(env.MIN_CONFIDENCE) || 0.6,
@@ -32,6 +33,7 @@ export function assertProviderKeys() {
   if (config.llmProvider === 'groq') need.push(['GROQ_API_KEY', config.groqKey]);
   const missing = need.filter(([, v]) => !v).map(([k]) => k);
   if (missing.length) throw new Error(`Missing env var(s): ${missing.join(', ')} (see server/.env)`);
+  if (!['vector', 'keyword', 'hybrid', 'hybrid_rerank'].includes(config.retrievalMode)) throw new Error(`Unknown RETRIEVAL_MODE "${config.retrievalMode}" (use vector, keyword, hybrid or hybrid_rerank)`);
   const okLlm = ['mock', 'openai', 'gemini', 'anthropic', 'groq'].includes(config.llmProvider);
   const okEmb = ['mock', 'openai', 'gemini'].includes(config.embedProvider);
   if (!okLlm) throw new Error(`Unknown LLM_PROVIDER "${config.llmProvider}"`);

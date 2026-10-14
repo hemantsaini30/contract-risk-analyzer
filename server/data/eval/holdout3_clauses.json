@@ -1,0 +1,507 @@
+[
+  {
+    "id": "H3-01",
+    "contract_type": "supplier",
+    "clause": "Personal data of Northwind's customers may be hosted in data centres located in the United States and India.",
+    "expected": [
+      {
+        "policy_id": "POL-SEC-003",
+        "severity": "High"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "H3-02",
+    "contract_type": "nda",
+    "clause": "Any dispute arising under this Agreement shall be resolved by the courts of the State of Delaware.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "H3-03",
+    "contract_type": "supplier",
+    "clause": "The Supplier makes no promises about the quality or fitness of the services, which are supplied without any warranty.",
+    "expected": [
+      {
+        "policy_id": "POL-MSA-010",
+        "severity": "Medium"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "H3-04",
+    "contract_type": "nda",
+    "clause": "Either party may terminate this Agreement for convenience on sixty days' written notice.",
+    "expected": [],
+    "note": "PAIR with the supplier version: in an NDA this is compliant"
+  },
+  {
+    "id": "H3-05",
+    "contract_type": "nda",
+    "clause": "If compelled by law to disclose Confidential Information, the Receiving Party will give the Disclosing Party advance written notice and cooperate in seeking a protective order.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "H3-06",
+    "contract_type": "nda",
+    "clause": "The Counterparty may state publicly that it is working with Northwind and use Northwind's name in its brochures.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-018",
+        "severity": "Low"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "H3-07",
+    "contract_type": "nda",
+    "clause": "This Agreement is governed by English law.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "H3-08",
+    "contract_type": "supplier",
+    "clause": "The Supplier shall not use Northwind data for any purpose other than providing the services.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "H3-09",
+    "contract_type": "supplier",
+    "clause": "Service levels are aspirational and the Supplier accepts no consequence if they are missed.",
+    "expected": [
+      {
+        "policy_id": "POL-MSA-012",
+        "severity": "Medium"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "H3-10",
+    "contract_type": "nda",
+    "clause": "Either party may cancel this Agreement on seven days' notice.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-006",
+        "severity": "Medium"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "H3-11",
+    "contract_type": "supplier",
+    "clause": "After the initial term this Agreement continues automatically for a further period of five years at a time.",
+    "expected": [
+      {
+        "policy_id": "POL-MSA-004",
+        "severity": "Medium"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "H3-12",
+    "contract_type": "nda",
+    "clause": "The Receiving Party shall return or securely destroy the Confidential Information within twenty-five days of the Disclosing Party's written request.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "H3-13",
+    "contract_type": "nda",
+    "clause": "Confidentiality obligations under this Agreement are intended to last forever.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-002",
+        "severity": "High"
+      }
+    ],
+    "acceptable_extra": [
+      "POL-NDA-001"
+    ],
+    "note": ""
+  },
+  {
+    "id": "H3-14",
+    "contract_type": "supplier",
+    "clause": "Neither party excludes liability for fraud, wilful misconduct, or death or personal injury caused by negligence.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "H3-15",
+    "contract_type": "nda",
+    "clause": "Either party may terminate this Agreement for convenience by giving the other at least forty-five days' written notice.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "H3-16",
+    "contract_type": "nda",
+    "clause": "This Agreement is subject to Singapore law and the parties agree to the courts of Singapore.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-003",
+        "severity": "High"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "H3-17",
+    "contract_type": "supplier",
+    "clause": "Any variation to this Agreement must be made in writing and signed by authorised representatives of both parties.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "H3-18",
+    "contract_type": "nda",
+    "clause": "Each party shall be liable for its own breaches, and each party's total liability is capped at USD 750,000.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "H3-19",
+    "contract_type": "nda",
+    "clause": "The Receiving Party may hand over Confidential Information to a court on demand and tell the Disclosing Party afterwards.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-015",
+        "severity": "Medium"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "H3-20",
+    "contract_type": "nda",
+    "clause": "Either party may transfer its rights under this Agreement to a third party without needing approval.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-011",
+        "severity": "Medium"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "H3-21",
+    "contract_type": "nda",
+    "clause": "The Counterparty has the right to enter Northwind's premises to check how Confidential Information is protected.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-017",
+        "severity": "Medium"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "H3-22",
+    "contract_type": "supplier",
+    "clause": "Northwind may audit the Supplier's compliance with its data protection and security obligations once in any twelve-month period on reasonable notice.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "H3-23",
+    "contract_type": "nda",
+    "clause": "The parties agree that all disputes will be decided by an arbitration tribunal in London.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-014",
+        "severity": "Low"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "H3-24",
+    "contract_type": "supplier",
+    "clause": "Northwind must settle every invoice within ten days after the invoice is issued.",
+    "expected": [
+      {
+        "policy_id": "POL-MSA-001",
+        "severity": "Medium"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "H3-25",
+    "contract_type": "supplier",
+    "clause": "Any software, reports or designs the Supplier creates for Northwind shall be owned by the Supplier.",
+    "expected": [
+      {
+        "policy_id": "POL-IP-001",
+        "severity": "High"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "H3-26",
+    "contract_type": "nda",
+    "clause": "Either party can ask a court for an injunction or other equitable remedy if the other breaches this Agreement.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "H3-27",
+    "contract_type": "supplier",
+    "clause": "Either party may terminate this Agreement for convenience on sixty days' written notice.",
+    "expected": [
+      {
+        "policy_id": "POL-MSA-015",
+        "severity": "High"
+      }
+    ],
+    "note": "PAIR with the NDA version: in a supplier agreement 'either party' includes the supplier"
+  },
+  {
+    "id": "H3-28",
+    "contract_type": "supplier",
+    "clause": "If the Supplier suffers a security incident involving Northwind data it shall inform Northwind within thirty-six hours.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "H3-29",
+    "contract_type": "nda",
+    "clause": "Northwind accepts full responsibility for any damages the Counterparty may suffer, however large.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-004",
+        "severity": "Critical"
+      }
+    ],
+    "acceptable_extra": [
+      "POL-NDA-005"
+    ],
+    "note": ""
+  },
+  {
+    "id": "H3-30",
+    "contract_type": "supplier",
+    "clause": "The Supplier shall comply with applicable sanctions and export laws and shall not deliver any part of the services from a sanctioned jurisdiction.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "H3-31",
+    "contract_type": "nda",
+    "clause": "The Receiving Party shall not ask any court for urgent relief such as an injunction.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-012",
+        "severity": "High"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "H3-32",
+    "contract_type": "supplier",
+    "clause": "Northwind may inspect the Supplier's records relating to the services on reasonable notice to verify compliance.",
+    "expected": [],
+    "note": "trap: compliant. A right for Northwind, with no frequency limit"
+  },
+  {
+    "id": "H3-33",
+    "contract_type": "nda",
+    "clause": "Each party may pass personal information about its staff to any third party it chooses for the Purpose.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-007",
+        "severity": "High"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "H3-34",
+    "contract_type": "nda",
+    "clause": "The duties of confidentiality set out in this Agreement shall survive for six years after the date on which the Agreement is terminated.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-001",
+        "severity": "Medium"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "H3-35",
+    "contract_type": "nda",
+    "clause": "The confidentiality obligations end three years after the termination date, except for trade secrets, which stay protected for as long as they are trade secrets.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "H3-36",
+    "contract_type": "supplier",
+    "clause": "The Supplier's financial liability for all claims in any year shall never exceed USD 50,000.",
+    "expected": [
+      {
+        "policy_id": "POL-MSA-007",
+        "severity": "High"
+      }
+    ],
+    "acceptable_extra": [
+      "POL-MSA-008"
+    ],
+    "note": ""
+  },
+  {
+    "id": "H3-37",
+    "contract_type": "supplier",
+    "clause": "The Supplier is free to pass the work to other companies of its choosing and does not have to tell Northwind.",
+    "expected": [
+      {
+        "policy_id": "POL-MSA-013",
+        "severity": "Medium"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "H3-38",
+    "contract_type": "supplier",
+    "clause": "The Supplier shall carry cyber and professional indemnity insurance of USD 5,000,000 per claim during the term.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "H3-39",
+    "contract_type": "supplier",
+    "clause": "The Supplier will tell Northwind about a data breach once its own investigation has been completed, which may take several weeks.",
+    "expected": [
+      {
+        "policy_id": "POL-SEC-002",
+        "severity": "High"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "H3-40",
+    "contract_type": "supplier",
+    "clause": "The Supplier can raise its prices once a year by any amount it chooses, effective immediately on notice.",
+    "expected": [
+      {
+        "policy_id": "POL-MSA-003",
+        "severity": "Medium"
+      }
+    ],
+    "acceptable_extra": [
+      "POL-MSA-017"
+    ],
+    "note": ""
+  },
+  {
+    "id": "H3-41",
+    "contract_type": "supplier",
+    "clause": "The Supplier will not defend or compensate Northwind if a third party claims the deliverables infringe its patents.",
+    "expected": [
+      {
+        "policy_id": "POL-IP-003",
+        "severity": "High"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "H3-42",
+    "contract_type": "supplier",
+    "clause": "Northwind shall pay each correct invoice within forty-five (45) days of receiving it.",
+    "expected": [],
+    "note": "compliant: exactly at the limit"
+  },
+  {
+    "id": "H3-43",
+    "contract_type": "supplier",
+    "clause": "The Supplier's website terms of use, as amended from time to time, shall form part of this Agreement.",
+    "expected": [
+      {
+        "policy_id": "POL-GEN-001",
+        "severity": "Medium"
+      }
+    ],
+    "acceptable_extra": [
+      "POL-MSA-017"
+    ],
+    "note": ""
+  },
+  {
+    "id": "H3-44",
+    "contract_type": "nda",
+    "clause": "Each party will keep the other's confidential information secret and will use it only for the purpose of evaluating the proposed transaction.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "H3-45",
+    "contract_type": "nda",
+    "clause": "The Receiving Party must return documents within four months of the Disclosing Party's request.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-008",
+        "severity": "Medium"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "H3-46",
+    "contract_type": "supplier",
+    "clause": "The Supplier warrants that the services will be delivered with reasonable skill and care and will remedy any non-conforming deliverable for twelve months.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "H3-47",
+    "contract_type": "supplier",
+    "clause": "The Supplier shall notify Northwind of any change of control within twenty days.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "H3-48",
+    "contract_type": "supplier",
+    "clause": "Northwind can only end this Agreement for the Supplier's breach after allowing six months for the problem to be fixed.",
+    "expected": [
+      {
+        "policy_id": "POL-MSA-014",
+        "severity": "Medium"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "H3-49",
+    "contract_type": "nda",
+    "clause": "Neither party will assign this Agreement without first obtaining the other party's written consent.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "H3-50",
+    "contract_type": "nda",
+    "clause": "Neither party may employ the other party's staff for a period of thirty months after the Effective Date.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-009",
+        "severity": "Medium"
+      }
+    ],
+    "note": ""
+  }
+]

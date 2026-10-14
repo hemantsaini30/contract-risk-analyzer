@@ -1,0 +1,119 @@
+{
+  "set": "holdout2",
+  "when": "2026-10-13T17:03:35.243Z",
+  "llm": "groq",
+  "embeddings": "gemini",
+  "retrievalMode": "vector",
+  "topK": 5,
+  "policies": 49,
+  "retrieval": {
+    "vector": {
+      "recall@1": 0.8709677419354839,
+      "recall@3": 0.967741935483871,
+      "recall@5": 1,
+      "recall@8": 1,
+      "notInTopK": []
+    },
+    "keyword": {
+      "recall@1": 0.7419354838709677,
+      "recall@3": 0.8709677419354839,
+      "recall@5": 0.9354838709677419,
+      "recall@8": 0.9354838709677419,
+      "notInTopK": [
+        "T27:CMP-001",
+        "T36:NDA-010"
+      ]
+    },
+    "hybrid": {
+      "recall@1": 0.8064516129032258,
+      "recall@3": 0.9032258064516129,
+      "recall@5": 1,
+      "recall@8": 1,
+      "notInTopK": []
+    },
+    "hybrid_rerank": {
+      "recall@1": 0.7096774193548387,
+      "recall@3": 0.9032258064516129,
+      "recall@5": 0.9354838709677419,
+      "recall@8": 0.967741935483871,
+      "notInTopK": [
+        "T27:CMP-001",
+        "T36:NDA-010"
+      ]
+    }
+  },
+  "detection": {
+    "precision": 0.8571428571428571,
+    "recall": 0.967741935483871,
+    "f1": 0.909090909090909,
+    "severityAccuracy": 1,
+    "citationAccuracy": 0.9736842105263158,
+    "cleanFlagged": 2,
+    "cleanTotal": 23,
+    "acceptedExtras": 3
+  },
+  "misses": [
+    "T39 missed POL-MSA-009  [policy WAS retrieved, the LLM said no]  (wrong cover type and amount)"
+  ],
+  "falseAlarms": [
+    "T03 flagged POL-IP-003 (confidence 0.94): The policy requires IP infringement indemnity to be uncapped, but the clause imposes a general liability cap that would also limit that indemnity.\n      clause: \"The Supplier's aggregate liability is capped at USD 100,000 in all circumstances.\"",
+    "T17 flagged POL-SEC-006 (confidence 0.95): The clause limits audits to no more than once per year, which can be less frequent than the policy's required minimum of at least once every twelve months.\n      clause: \"Northwind may, on reasonable notice and not more than once a year unless a breach has occurred, audit the Supp\"",
+    "T26 flagged POL-MSA-007 (confidence 0.94): The clause sets a liability cap of $250,000, which is below the policy minimum floor of $500,000 (or twelve months of fees).\n      clause: \"Nothing excludes liability for death or personal injury, except that the Supplier's liability for personal inj\"",
+    "T30 flagged POL-NDA-004 (confidence 0.40): The clause permits unlimited liability for fraud, wilful misconduct, and death/personal injury, which directly conflicts with the policy that disallows any unlimited liab\n      clause: \"Each party's total liability under this Agreement shall not exceed USD 1,000,000, except for liability for fra\"",
+    "T43 flagged POL-MSA-017 (confidence 0.96): The clause allows the Supplier to unilaterally update its standard terms by reference, violating the policy that changes must be agreed in writing by both parties.\n      clause: \"The Supplier's standard terms and conditions, as updated from time to time, are incorporated into this Agreeme\""
+  ],
+  "sevWrong": [],
+  "unverified": [
+    "T30 POL-NDA-004: CONTRACT quote not found in clause -> \"liability ... shall not exceed USD 1,000,000, except for liability for fraud, wilful misconduct, or death or personal injury caused by negligence, which is unlimited\""
+  ],
+  "confidenceSweep": [
+    {
+      "threshold": 0,
+      "precision": 0.8571428571428571,
+      "recall": 0.967741935483871,
+      "f1": 0.909090909090909,
+      "cleanFlagged": 2,
+      "cleanTotal": 23
+    },
+    {
+      "threshold": 0.7,
+      "precision": 0.8823529411764706,
+      "recall": 0.967741935483871,
+      "f1": 0.923076923076923,
+      "cleanFlagged": 1,
+      "cleanTotal": 23
+    },
+    {
+      "threshold": 0.8,
+      "precision": 0.8823529411764706,
+      "recall": 0.967741935483871,
+      "f1": 0.923076923076923,
+      "cleanFlagged": 1,
+      "cleanTotal": 23
+    },
+    {
+      "threshold": 0.85,
+      "precision": 0.8823529411764706,
+      "recall": 0.967741935483871,
+      "f1": 0.923076923076923,
+      "cleanFlagged": 1,
+      "cleanTotal": 23
+    },
+    {
+      "threshold": 0.9,
+      "precision": 0.8823529411764706,
+      "recall": 0.967741935483871,
+      "f1": 0.923076923076923,
+      "cleanFlagged": 1,
+      "cleanTotal": 23
+    },
+    {
+      "threshold": 0.95,
+      "precision": 0.9375,
+      "recall": 0.967741935483871,
+      "f1": 0.9523809523809523,
+      "cleanFlagged": 1,
+      "cleanTotal": 23
+    }
+  ]
+}

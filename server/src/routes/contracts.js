@@ -7,6 +7,7 @@ import { query } from '../db/pool.js';
 import { extractText } from '../services/parser.js';
 import { splitClauses } from '../services/splitter.js';
 import { analyzeContract } from '../services/analyzer.js';
+import { detectContractType, normalizeType } from '../services/contractType.js';
 import { buildReportHtml } from '../services/report.js';
 
 const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 10 * 1024 * 1024 } });
@@ -14,13 +15,13 @@ const SAMPLES_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '
 
 export const contractsRouter = Router();
 
-async function createContract(buffer, filename) {
+async function createContract(buffer, filename, requestedType) {
   const text = await extractText(buffer, filename);
   const clauses = splitClauses(text);
   if (!clauses.length) throw new Error('No numbered clauses found. Contracts need numbering like "1.", "2.1" or "Section 3".');
   const { rows } = await query(
-    `INSERT INTO contracts (filename, full_text, clauses_total, status) VALUES ($1,$2,$3,'processing') RETURNING id`,
-    [filename, text, clauses.length]
+    `INSERT INTO contracts (filename, full_text, clauses_total, status, contract_type) VALUES ($1,$2,$3,'processing',$4) RETURNING id`,
+    [filename, text, clauses.length, normalizeType(requestedType) || detectContractType(text)]
   );
   const id = rows[0].id;
   for (const c of clauses) {
@@ -58,21 +59,21 @@ contractsRouter.post('/from-sample', async (req, res, next) => {
   try {
     const name = path.basename(String(req.body?.filename || ''));
     const buf = await fs.readFile(path.join(SAMPLES_DIR, name));
-    res.json({ id: await createContract(buf, name) });
+    res.json({ id: await createContract(buf, name, req.body?.contract_type) });
   } catch (e) { next(e); }
 });
 
 contractsRouter.post('/', upload.single('file'), async (req, res, next) => {
   try {
     if (!req.file) return res.status(400).json({ error: 'No file uploaded' });
-    res.json({ id: await createContract(req.file.buffer, req.file.originalname) });
+    res.json({ id: await createContract(req.file.buffer, req.file.originalname, req.body?.contract_type) });
   } catch (e) { e.status = 400; next(e); }
 });
 
 contractsRouter.get('/:id', async (req, res, next) => {
   try {
     const id = Number(req.params.id);
-    const { rows: [contract] } = await query('SELECT id, filename, status, error, clauses_total, clauses_done, llm_provider, embed_provider, created_at FROM contracts WHERE id=$1', [id]);
+    const { rows: [contract] } = await query('SELECT id, filename, status, error, clauses_total, clauses_done, llm_provider, embed_provider, contract_type, created_at FROM contracts WHERE id=$1', [id]);
     if (!contract) return res.status(404).json({ error: 'Not found' });
     const { rows: clauses } = await query('SELECT * FROM clauses WHERE contract_id=$1 ORDER BY idx', [id]);
     const { rows: findings } = await query('SELECT * FROM findings WHERE contract_id=$1 ORDER BY id', [id]);
@@ -83,7 +84,15 @@ contractsRouter.get('/:id', async (req, res, next) => {
 
 contractsRouter.post('/:id/reanalyze', async (req, res, next) => {
   try {
-    analyzeContract(Number(req.params.id));
+    const id = Number(req.params.id);
+    if (req.body && 'contract_type' in req.body) {
+      // 'nda' | 'supplier' | 'auto' (auto = detect again from the text)
+      const { rows: [c] } = await query('SELECT full_text FROM contracts WHERE id=$1', [id]);
+      if (!c) return res.status(404).json({ error: 'Not found' });
+      const type = normalizeType(req.body.contract_type) || detectContractType(c.full_text);
+      await query('UPDATE contracts SET contract_type=$2 WHERE id=$1', [id, type]);
+    }
+    analyzeContract(id);
     res.json({ ok: true });
   } catch (e) { next(e); }
 });

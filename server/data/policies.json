@@ -10,7 +10,10 @@
       "days": 1095,
       "topic": "surviv|confidentiality (?:term|period|obligations)|remain(?:s)? (?:confidential|in effect)|continue (?:to apply|for)",
       "fix_phrase": "three (3) years"
-    }
+    },
+    "applies_to": [
+      "nda"
+    ]
   },
   {
     "policy_id": "POL-NDA-002",
@@ -24,7 +27,10 @@
       "unless": "trade secret",
       "message": "The clause makes confidentiality obligations perpetual or indefinite without a trade-secret carve-out",
       "fix": "The obligations of confidentiality shall expire three (3) years after termination, except for trade secrets, which remain protected for as long as they qualify as trade secrets."
-    }
+    },
+    "applies_to": [
+      "nda"
+    ]
   },
   {
     "policy_id": "POL-NDA-003",
@@ -37,7 +43,10 @@
       "pattern": "laws? of (?:the )?(?:state of |republic of |people's republic of |commonwealth of )?(?:california|texas|new york|florida|singapore|china|russia|uae|united arab emirates|india|japan|germany|france|brazil|nigeria|saudi arabia)",
       "message": "The governing law is not one of the approved jurisdictions (England and Wales, or Delaware)",
       "fix": "This Agreement shall be governed by the laws of England and Wales."
-    }
+    },
+    "applies_to": [
+      "nda"
+    ]
   },
   {
     "policy_id": "POL-NDA-004",
@@ -51,7 +60,10 @@
       "message": "The clause exposes Northwind to unlimited or uncapped liability",
       "fix": "Each party's aggregate liability under this Agreement shall not exceed USD 100,000, and neither party shall be liable for indirect or consequential damages.",
       "unless": "neither party shall be liable|not be liable|shall not exceed"
-    }
+    },
+    "applies_to": [
+      "nda"
+    ]
   },
   {
     "policy_id": "POL-NDA-005",
@@ -64,7 +76,10 @@
       "pattern": "northwind (?:shall|will|agrees to) (?:fully |promptly )?(?:indemnify|defend|hold harmless)",
       "message": "Northwind is giving a one-sided indemnity",
       "fix": "Remove the indemnity, or make it mutual and subject to the agreed liability cap."
-    }
+    },
+    "applies_to": [
+      "nda"
+    ]
   },
   {
     "policy_id": "POL-NDA-006",
@@ -77,7 +92,10 @@
       "days": 30,
       "topic": "terminat.{0,100}notice|notice.{0,100}terminat",
       "fix_phrase": "thirty (30) days"
-    }
+    },
+    "applies_to": [
+      "nda"
+    ]
   },
   {
     "policy_id": "POL-NDA-007",
@@ -91,7 +109,10 @@
       "required": "data protection|gdpr|data processing agreement|privacy law",
       "message": "The clause allows sharing personal data without requiring data protection compliance",
       "fix": "Each party shall comply with all applicable data protection laws and, where required, the parties shall enter into a data processing agreement before any personal data is shared."
-    }
+    },
+    "applies_to": [
+      "nda"
+    ]
   },
   {
     "policy_id": "POL-NDA-008",
@@ -104,7 +125,10 @@
       "days": 30,
       "topic": "return|destr",
       "fix_phrase": "thirty (30) days"
-    }
+    },
+    "applies_to": [
+      "nda"
+    ]
   },
   {
     "policy_id": "POL-NDA-009",
@@ -117,7 +141,10 @@
       "days": 365,
       "topic": "solicit",
       "fix_phrase": "twelve (12) months"
-    }
+    },
+    "applies_to": [
+      "nda"
+    ]
   },
   {
     "policy_id": "POL-NDA-010",
@@ -130,7 +157,10 @@
       "pattern": "exclusivity|exclusive(?:ly)? (?:deal|dealing|supplier|relationship|right to)|deal(?:s|ing)? exclusively|non-?compet|standstill|shall not (?:engage in|compete)",
       "message": "The clause imposes a non-compete or exclusivity obligation on Northwind",
       "fix": "Delete the exclusivity or non-compete obligation; any such commitment belongs in a separate commercial agreement."
-    }
+    },
+    "applies_to": [
+      "nda"
+    ]
   },
   {
     "policy_id": "POL-NDA-011",
@@ -144,7 +174,10 @@
       "unless": "neither party|no party|shall not assign|may not assign|not (?:be )?assign",
       "message": "The clause allows assignment without the other party's consent",
       "fix": "Neither party may assign this Agreement without the prior written consent of the other party."
-    }
+    },
+    "applies_to": [
+      "nda"
+    ]
   },
   {
     "policy_id": "POL-NDA-012",
@@ -157,7 +190,10 @@
       "pattern": "waiv\\w*.{0,60}(?:injunctive|equitable)|(?:injunctive|equitable).{0,40}(?:waived|shall not be available)|no (?:injunctive|equitable) relief|(?:shall|may) not (?:seek|apply for|obtain).{0,30}(?:injunct|equitable)",
       "message": "The clause waives the right to injunctive or equitable relief",
       "fix": "Each party acknowledges that damages may be an inadequate remedy and that the other party may seek injunctive or other equitable relief for any breach of this Agreement."
-    }
+    },
+    "applies_to": [
+      "nda"
+    ]
   },
   {
     "policy_id": "POL-NDA-013",
@@ -170,7 +206,10 @@
       "pattern": "residual|unaided memory|retained in (?:the )?(?:memory|minds?)",
       "message": "The clause contains a residuals right allowing use of information retained in memory",
       "fix": "Delete the residuals language. The Receiving Party shall use Confidential Information solely for the Purpose."
-    }
+    },
+    "applies_to": [
+      "nda"
+    ]
   },
   {
     "policy_id": "POL-NDA-014",
@@ -183,7 +222,10 @@
       "pattern": "binding arbitration|submitted to arbitration|resolved by arbitration|arbitrat\\w+ (?:tribunal|panel|rules)",
       "message": "The clause requires binding arbitration instead of court resolution",
       "fix": "Any dispute arising out of this Agreement shall be subject to the exclusive jurisdiction of the courts of the governing-law jurisdiction."
-    }
+    },
+    "applies_to": [
+      "nda"
+    ]
   },
   {
     "policy_id": "POL-NDA-015",
@@ -197,7 +239,10 @@
       "required": "(?:prompt|prior|immediate|written) notice|notify|notice to",
       "message": "The clause permits compelled disclosure without requiring prior notice to the disclosing party",
       "fix": "The Receiving Party shall give the Disclosing Party prompt prior written notice of any compelled disclosure and cooperate in seeking a protective order."
-    }
+    },
+    "applies_to": [
+      "nda"
+    ]
   },
   {
     "policy_id": "POL-NDA-016",
@@ -210,7 +255,10 @@
       "pattern": "(?:only|solely|exclusively).{0,60}(?:marked|designated|labell?ed|identified in writing)",
       "message": "The definition covers only information that is expressly marked as confidential",
       "fix": "Confidential Information means any non-public information that a reasonable person would understand to be confidential, whether or not it is marked as such."
-    }
+    },
+    "applies_to": [
+      "nda"
+    ]
   },
   {
     "policy_id": "POL-NDA-017",
@@ -223,7 +271,10 @@
       "pattern": "audit|inspect(?:ion)?.{0,30}(?:premises|facilities|systems)|on-?site",
       "message": "The clause grants the counterparty audit or on-site inspection rights",
       "fix": "Upon request, Northwind shall provide a written certification by an officer confirming compliance with this Agreement."
-    }
+    },
+    "applies_to": [
+      "nda"
+    ]
   },
   {
     "policy_id": "POL-NDA-018",
@@ -237,6 +288,320 @@
       "required": "prior written (?:consent|approval)",
       "message": "The clause permits use of Northwind's name or announcements without Northwind's prior written consent",
       "fix": "Neither party shall use the other's name, logo or trademarks, or issue any publicity about this Agreement, without the other party's prior written consent."
-    }
+    },
+    "applies_to": [
+      "nda"
+    ]
+  },
+  {
+    "policy_id": "POL-MSA-001",
+    "title": "Invoice payment period",
+    "section": "Payment",
+    "default_severity": "Medium",
+    "text": "Northwind must have at least forty-five (45) days from receipt of a valid invoice to pay it. Shorter payment periods require approval from the Finance department.",
+    "applies_to": [
+      "supplier"
+    ]
+  },
+  {
+    "policy_id": "POL-MSA-002",
+    "title": "Late-payment interest",
+    "section": "Payment",
+    "default_severity": "Low",
+    "text": "Interest on late payments must not exceed one percent (1%) per month and must not apply to amounts disputed in good faith.",
+    "applies_to": [
+      "supplier"
+    ]
+  },
+  {
+    "policy_id": "POL-MSA-003",
+    "title": "Fee increases",
+    "section": "Fees",
+    "default_severity": "Medium",
+    "text": "Fees must remain fixed during the initial term. Fee increases for a renewal term must not exceed five percent (5%) and require at least sixty (60) days' prior written notice.",
+    "applies_to": [
+      "supplier"
+    ]
+  },
+  {
+    "policy_id": "POL-MSA-004",
+    "title": "Automatic renewal length",
+    "section": "Term & Renewal",
+    "default_severity": "Medium",
+    "text": "Automatic renewal terms must not exceed twelve (12) months. Longer automatic renewal terms require approval from the Procurement department.",
+    "applies_to": [
+      "supplier"
+    ]
+  },
+  {
+    "policy_id": "POL-MSA-005",
+    "title": "Non-renewal notice",
+    "section": "Term & Renewal",
+    "default_severity": "Medium",
+    "text": "Northwind must be able to stop an automatic renewal by giving notice no more than thirty (30) days before the renewal date. Longer non-renewal notice periods are not acceptable.",
+    "applies_to": [
+      "supplier"
+    ]
+  },
+  {
+    "policy_id": "POL-MSA-006",
+    "title": "No minimum commitments",
+    "section": "Fees",
+    "default_severity": "Medium",
+    "text": "Northwind must not agree to minimum purchase volumes, take-or-pay charges or minimum spend commitments. Any such commitment requires approval from the Finance department.",
+    "applies_to": [
+      "supplier"
+    ]
+  },
+  {
+    "policy_id": "POL-MSA-007",
+    "title": "Supplier liability cap floor",
+    "section": "Liability",
+    "default_severity": "High",
+    "text": "A supplier's liability cap must be at least twelve (12) months of fees and in any case not lower than USD 500,000. Lower caps require approval from the Risk department.",
+    "applies_to": [
+      "supplier"
+    ]
+  },
+  {
+    "policy_id": "POL-MSA-008",
+    "title": "Liability that cannot be limited",
+    "section": "Liability",
+    "default_severity": "High",
+    "text": "A supplier's liability for fraud, wilful misconduct, and death or personal injury caused by negligence must not be limited or excluded.",
+    "applies_to": [
+      "supplier"
+    ]
+  },
+  {
+    "policy_id": "POL-MSA-009",
+    "title": "Supplier insurance",
+    "section": "Insurance",
+    "default_severity": "Medium",
+    "text": "Suppliers must maintain professional indemnity and cyber insurance of at least USD 2,000,000 per claim for the term of the agreement and provide evidence on request.",
+    "applies_to": [
+      "supplier"
+    ]
+  },
+  {
+    "policy_id": "POL-MSA-010",
+    "title": "Service warranties",
+    "section": "Warranty",
+    "default_severity": "Medium",
+    "text": "Services must be warranted as performed with reasonable skill and care, and deliverables as conforming to their specifications for at least twelve (12) months. Disclaimers of all warranties, including 'as is' supply, are not acceptable.",
+    "applies_to": [
+      "supplier"
+    ]
+  },
+  {
+    "policy_id": "POL-MSA-011",
+    "title": "Force majeure limits",
+    "section": "Risk Allocation",
+    "default_severity": "Low",
+    "text": "Force majeure must not excuse a supplier for events within its reasonable control, such as staff shortages or subcontractor failure. Northwind may terminate if a force majeure event lasts more than thirty (30) days.",
+    "applies_to": [
+      "supplier"
+    ]
+  },
+  {
+    "policy_id": "POL-MSA-012",
+    "title": "Service levels and credits",
+    "section": "Service Quality",
+    "default_severity": "Medium",
+    "text": "Agreements for business-critical services must include measurable service levels with service credits, and a right for Northwind to terminate for repeated failure. Service levels must not be described as targets only.",
+    "applies_to": [
+      "supplier"
+    ]
+  },
+  {
+    "policy_id": "POL-MSA-013",
+    "title": "Subcontracting",
+    "section": "Supply Chain",
+    "default_severity": "Medium",
+    "text": "Suppliers must not subcontract a material part of the services without Northwind's prior written consent and remain fully liable for their subcontractors.",
+    "applies_to": [
+      "supplier"
+    ]
+  },
+  {
+    "policy_id": "POL-MSA-014",
+    "title": "Termination for supplier breach",
+    "section": "Termination",
+    "default_severity": "Medium",
+    "text": "Northwind must be able to terminate for a supplier's material breach that is not remedied within thirty (30) days of notice, and immediately for the supplier's insolvency. Cure periods longer than thirty days are not acceptable.",
+    "applies_to": [
+      "supplier"
+    ]
+  },
+  {
+    "policy_id": "POL-MSA-015",
+    "title": "Supplier suspension and termination",
+    "section": "Termination",
+    "default_severity": "High",
+    "text": "In a supplier or services agreement, a supplier must not be entitled to terminate or suspend services for convenience. Suspension for non-payment is allowed only after sixty (60) days' written notice of an undisputed overdue amount.",
+    "applies_to": [
+      "supplier"
+    ]
+  },
+  {
+    "policy_id": "POL-MSA-016",
+    "title": "Exit assistance",
+    "section": "Termination",
+    "default_severity": "Medium",
+    "text": "Suppliers must provide reasonable exit assistance for at least ninety (90) days after termination or expiry, at no more than their standard rates, and must return Northwind data in a standard format. The deletion deadline in POL-SEC-004 runs from the end of the exit-assistance period.",
+    "applies_to": [
+      "supplier"
+    ]
+  },
+  {
+    "policy_id": "POL-MSA-017",
+    "title": "Change control",
+    "section": "Contract Management",
+    "default_severity": "Low",
+    "text": "Changes to scope, fees or service descriptions are binding only if agreed in writing by both parties, except fee increases that comply with POL-MSA-003. A supplier must not be able to change the terms unilaterally, for example by updating a website or policy.",
+    "applies_to": [
+      "supplier"
+    ]
+  },
+  {
+    "policy_id": "POL-IP-001",
+    "title": "Ownership of bespoke deliverables",
+    "section": "Intellectual Property",
+    "default_severity": "High",
+    "text": "Northwind must own all intellectual property rights in deliverables created specifically for Northwind and paid for by Northwind. A supplier may keep ownership only of its pre-existing tools, which must be licensed to Northwind on a perpetual, royalty-free basis for use with the deliverables.",
+    "applies_to": [
+      "supplier"
+    ]
+  },
+  {
+    "policy_id": "POL-IP-002",
+    "title": "Northwind data and materials",
+    "section": "Intellectual Property",
+    "default_severity": "High",
+    "text": "Northwind's data, content and pre-existing intellectual property remain Northwind's property. A supplier may use them only as needed to perform the services for Northwind.",
+    "applies_to": [
+      "supplier"
+    ]
+  },
+  {
+    "policy_id": "POL-IP-003",
+    "title": "IP infringement indemnity",
+    "section": "Intellectual Property",
+    "default_severity": "High",
+    "text": "Suppliers must indemnify Northwind against third-party claims that the services or deliverables infringe intellectual property rights. This indemnity must not be subject to the supplier's general liability cap.",
+    "applies_to": [
+      "supplier"
+    ]
+  },
+  {
+    "policy_id": "POL-IP-004",
+    "title": "No AI training on Northwind data",
+    "section": "Intellectual Property",
+    "default_severity": "High",
+    "text": "Suppliers must not use Northwind data or confidential information to train, fine-tune or improve machine-learning or AI models without Northwind's prior written consent.",
+    "applies_to": [
+      "supplier"
+    ]
+  },
+  {
+    "policy_id": "POL-SEC-001",
+    "title": "Security certification",
+    "section": "Data Security",
+    "default_severity": "High",
+    "text": "Suppliers that handle Northwind data must maintain security controls certified to ISO 27001 or SOC 2 Type II and provide the current certificate or report on request.",
+    "applies_to": [
+      "supplier"
+    ]
+  },
+  {
+    "policy_id": "POL-SEC-002",
+    "title": "Security incident notification",
+    "section": "Data Security",
+    "default_severity": "High",
+    "text": "Suppliers must notify Northwind of any security incident affecting Northwind data without undue delay and no later than forty-eight (48) hours after becoming aware of it. Longer notification periods are not acceptable.",
+    "applies_to": [
+      "supplier"
+    ]
+  },
+  {
+    "policy_id": "POL-SEC-003",
+    "title": "Data location",
+    "section": "Data Security",
+    "default_severity": "High",
+    "text": "Northwind personal data must not be transferred or stored outside the United Kingdom or the European Economic Area without Northwind's prior written consent and an approved transfer mechanism.",
+    "applies_to": [
+      "nda",
+      "supplier"
+    ]
+  },
+  {
+    "policy_id": "POL-SEC-004",
+    "title": "Deletion of Northwind data at end of services",
+    "section": "Data Security",
+    "default_severity": "Medium",
+    "text": "Suppliers must delete or return all Northwind data processed on its behalf within thirty (30) days of the end of the services, or of any exit-assistance period if later, and confirm deletion in writing.",
+    "applies_to": [
+      "supplier"
+    ]
+  },
+  {
+    "policy_id": "POL-SEC-005",
+    "title": "Sub-processors",
+    "section": "Data Security",
+    "default_severity": "Medium",
+    "text": "Suppliers must obtain Northwind's prior written authorisation before engaging any sub-processor of Northwind personal data, and give at least thirty (30) days' notice of any change.",
+    "applies_to": [
+      "supplier"
+    ]
+  },
+  {
+    "policy_id": "POL-SEC-006",
+    "title": "Northwind's audit rights over suppliers",
+    "section": "Data Security",
+    "default_severity": "Medium",
+    "text": "Northwind must have the right to audit a supplier's compliance with security and data protection obligations, on reasonable notice, at least once in every twelve-month period. A clause that grants this right without limiting it complies; suppliers must not restrict it below this frequency.",
+    "applies_to": [
+      "supplier"
+    ]
+  },
+  {
+    "policy_id": "POL-CMP-001",
+    "title": "Anti-bribery and corruption",
+    "section": "Compliance",
+    "default_severity": "High",
+    "text": "Supplier agreements must require compliance with applicable anti-bribery and corruption laws and allow Northwind to terminate immediately for breach.",
+    "applies_to": [
+      "supplier"
+    ]
+  },
+  {
+    "policy_id": "POL-CMP-002",
+    "title": "Sanctions and export controls",
+    "section": "Compliance",
+    "default_severity": "High",
+    "text": "Supplier agreements must require compliance with applicable sanctions and export-control laws. A supplier must not supply services from or through any sanctioned country.",
+    "applies_to": [
+      "supplier"
+    ]
+  },
+  {
+    "policy_id": "POL-GEN-001",
+    "title": "Supplier standard terms",
+    "section": "General",
+    "default_severity": "Medium",
+    "text": "Northwind's contract terms must take precedence over a supplier's standard terms, order forms and online terms. Clauses that incorporate a supplier's standard terms by reference are not acceptable.",
+    "applies_to": [
+      "supplier"
+    ]
+  },
+  {
+    "policy_id": "POL-GEN-002",
+    "title": "Supplier change of control",
+    "section": "General",
+    "default_severity": "Low",
+    "text": "A supplier must notify Northwind in writing within thirty (30) days of any change of control. Northwind may terminate the agreement if the new owner is a competitor of Northwind.",
+    "applies_to": [
+      "supplier"
+    ]
   }
 ]

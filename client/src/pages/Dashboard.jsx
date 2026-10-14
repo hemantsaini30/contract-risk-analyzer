@@ -8,6 +8,7 @@ export default function Dashboard() {
   const [samples, setSamples] = useState([]);
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
+  const [ctype, setCtype] = useState('auto');
   const fileRef = useRef();
   const navigate = useNavigate();
 
@@ -49,14 +50,21 @@ export default function Dashboard() {
         <h2>Analyze a contract</h2>
         <p className="muted">Upload a PDF, DOCX or TXT. Clauses must be numbered (1., 2.1, Section 3).</p>
         <input ref={fileRef} type="file" accept=".pdf,.docx,.txt" />
-        <button className="btn accept" disabled={busy} onClick={() => fileRef.current.files[0] && start(() => api.upload(fileRef.current.files[0]))}>
+        <label style={{ marginRight: '.6rem' }}>Type{' '}
+          <select value={ctype} onChange={(e) => setCtype(e.target.value)}>
+            <option value="auto">Auto-detect</option>
+            <option value="nda">NDA</option>
+            <option value="supplier">Supplier / services</option>
+          </select>
+        </label>
+        <button className="btn accept" disabled={busy} onClick={() => fileRef.current.files[0] && start(() => api.upload(fileRef.current.files[0], ctype))}>
           {busy ? 'Working…' : 'Upload & analyze'}
         </button>
         {samples.length > 0 && (
           <div className="samples">
             <span className="muted">No file? Try a sample:</span>
             {samples.map((s) => (
-              <button key={s} className="btn ghost" disabled={busy} onClick={() => start(() => api.fromSample(s))}>{s}</button>
+              <button key={s} className="btn ghost" disabled={busy} onClick={() => start(() => api.fromSample(s, ctype))}>{s}</button>
             ))}
           </div>
         )}

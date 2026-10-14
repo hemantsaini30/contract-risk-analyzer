@@ -13,11 +13,12 @@ export async function analyzeContract(contractId) {
       [contractId, config.llmProvider, config.embedProvider]);
     await query('DELETE FROM findings WHERE contract_id=$1', [contractId]);
 
+    const { rows: [{ contract_type: contractType }] } = await query('SELECT contract_type FROM contracts WHERE id=$1', [contractId]);
     const { rows: clauses } = await query('SELECT * FROM clauses WHERE contract_id=$1 ORDER BY idx', [contractId]);
     const vectors = await embed(clauses.map((c) => c.text)); // clause vectors are temporary, never stored
 
     await pLimitMap(clauses, config.concurrency, async (clause, i) => {
-      const retrieved = await retrieve(clause.text, { topK: config.topK, embedding: vectors[i] });
+      const retrieved = await retrieve(clause.text, { topK: config.topK, embedding: vectors[i], contractType });
       const { findings } = await analyzeClause(clause, retrieved);
 
       for (const f of findings) {

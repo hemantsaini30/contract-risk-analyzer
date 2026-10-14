@@ -1,0 +1,528 @@
+[
+  {
+    "id": "T01",
+    "contract_type": "supplier",
+    "clause": "The Supplier may use Northwind's content and materials for its own marketing and for the benefit of its other customers.",
+    "expected": [
+      {
+        "policy_id": "POL-IP-002",
+        "severity": "High"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "T02",
+    "contract_type": "supplier",
+    "clause": "Northwind shall pay within ten (10) days, and overdue sums bear interest at three percent (3%) per month.",
+    "expected": [
+      {
+        "policy_id": "POL-MSA-001",
+        "severity": "Medium"
+      },
+      {
+        "policy_id": "POL-MSA-002",
+        "severity": "Low"
+      }
+    ],
+    "note": "two violations"
+  },
+  {
+    "id": "T03",
+    "contract_type": "supplier",
+    "clause": "The Supplier's aggregate liability is capped at USD 100,000 in all circumstances.",
+    "expected": [
+      {
+        "policy_id": "POL-MSA-007",
+        "severity": "High"
+      }
+    ],
+    "acceptable_extra": [
+      "POL-MSA-008"
+    ],
+    "note": "'in all circumstances' also caps fraud, so MSA-008 is an acceptable extra"
+  },
+  {
+    "id": "T04",
+    "contract_type": "nda",
+    "clause": "This Agreement may be ended by either party by giving five (5) business days' notice.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-006",
+        "severity": "Medium"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "T05",
+    "contract_type": "supplier",
+    "clause": "Within thirty (30) days after the services end, the Supplier shall delete or return all Northwind data and confirm deletion in writing.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "T06",
+    "contract_type": "supplier",
+    "clause": "The Supplier may appoint or replace sub-processors of Northwind personal data at its discretion and will update the list on its website.",
+    "expected": [
+      {
+        "policy_id": "POL-SEC-005",
+        "severity": "Medium"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "T07",
+    "contract_type": "supplier",
+    "clause": "The Supplier shall indemnify Northwind against third-party claims that the services or deliverables infringe intellectual property rights, and this indemnity is not subject to any limit of liability.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "T08",
+    "contract_type": "supplier",
+    "clause": "The Supplier follows industry-standard security practices but does not hold any formal security certification.",
+    "expected": [
+      {
+        "policy_id": "POL-SEC-001",
+        "severity": "High"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "T09",
+    "contract_type": "nda",
+    "clause": "The obligations in this Agreement continue for a period of three (3) years from the date of termination.",
+    "expected": [],
+    "note": "compliant: boundary"
+  },
+  {
+    "id": "T10",
+    "contract_type": "nda",
+    "clause": "Northwind shall bear all of the Counterparty's losses arising from this Agreement with no maximum amount.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-004",
+        "severity": "Critical"
+      }
+    ],
+    "acceptable_extra": [
+      "POL-NDA-005"
+    ],
+    "note": ""
+  },
+  {
+    "id": "T11",
+    "contract_type": "supplier",
+    "clause": "The Supplier may update these terms and the service description at any time by posting the revised version on its website.",
+    "expected": [
+      {
+        "policy_id": "POL-MSA-017",
+        "severity": "Low"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "T12",
+    "contract_type": "supplier",
+    "clause": "The Supplier may terminate this Agreement or suspend the services at any time for convenience on thirty (30) days' notice.",
+    "expected": [
+      {
+        "policy_id": "POL-MSA-015",
+        "severity": "High"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "T13",
+    "contract_type": "nda",
+    "clause": "If the Receiving Party is legally required to disclose Confidential Information, it shall promptly notify the Disclosing Party in advance in writing and assist the Disclosing Party in obtaining a protective order.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "T14",
+    "contract_type": "nda",
+    "clause": "The Receiving Party shall return the Confidential Information within one hundred and eighty (180) days of the Disclosing Party's request.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-008",
+        "severity": "Medium"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "T15",
+    "contract_type": "supplier",
+    "clause": "This Agreement shall renew automatically for successive periods of three (3) years unless terminated.",
+    "expected": [
+      {
+        "policy_id": "POL-MSA-004",
+        "severity": "Medium"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "T16",
+    "contract_type": "supplier",
+    "clause": "The Supplier shall not use any Northwind data to train or improve machine-learning or artificial-intelligence models without Northwind's prior written consent.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "T17",
+    "contract_type": "supplier",
+    "clause": "Northwind may, on reasonable notice and not more than once a year unless a breach has occurred, audit the Supplier's compliance with its security and data protection obligations.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "T18",
+    "contract_type": "supplier",
+    "clause": "Each party shall comply with all applicable sanctions and export-control laws, and the Supplier shall not provide the services from or through any sanctioned country.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "T19",
+    "contract_type": "nda",
+    "clause": "The parties' duty to keep information confidential has no end date.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-002",
+        "severity": "High"
+      }
+    ],
+    "acceptable_extra": [
+      "POL-NDA-001"
+    ],
+    "note": ""
+  },
+  {
+    "id": "T20",
+    "contract_type": "nda",
+    "clause": "Confidential Information includes all information that a reasonable person would regard as confidential, whether or not it is marked.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "T21",
+    "contract_type": "supplier",
+    "clause": "The Supplier may store and process Northwind personal data in any country where it or its affiliates operate data centres.",
+    "expected": [
+      {
+        "policy_id": "POL-SEC-003",
+        "severity": "High"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "T22",
+    "contract_type": "supplier",
+    "clause": "Northwind shall purchase a minimum of 5,000 licence-hours per year and shall pay for any shortfall at the full unit price.",
+    "expected": [
+      {
+        "policy_id": "POL-MSA-006",
+        "severity": "Medium"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "T23",
+    "contract_type": "supplier",
+    "clause": "For ninety (90) days after termination, the Supplier shall provide reasonable exit assistance at its standard rates and shall return Northwind's data in a commonly used format.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "T24",
+    "contract_type": "supplier",
+    "clause": "The Supplier warrants that the services will be performed with reasonable skill and care and that deliverables will conform to their specifications for eighteen (18) months after delivery.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "T25",
+    "contract_type": "supplier",
+    "clause": "Northwind shall own all intellectual property rights in the deliverables created specifically for it and paid for by it; the Supplier retains its pre-existing tools and grants Northwind a perpetual, royalty-free licence to use them with the deliverables.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "T26",
+    "contract_type": "supplier",
+    "clause": "Nothing excludes liability for death or personal injury, except that the Supplier's liability for personal injury caused by its negligence shall not exceed USD 250,000.",
+    "expected": [
+      {
+        "policy_id": "POL-MSA-008",
+        "severity": "High"
+      }
+    ],
+    "note": "subtle: caps injury liability"
+  },
+  {
+    "id": "T27",
+    "contract_type": "supplier",
+    "clause": "The Supplier may make facilitation payments to officials where customary in a local market to speed up routine approvals.",
+    "expected": [
+      {
+        "policy_id": "POL-CMP-001",
+        "severity": "High"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "T28",
+    "contract_type": "supplier",
+    "clause": "The fees are fixed for the initial term. For any renewal term, the Supplier may increase them by no more than three percent (3%) on sixty (60) days' prior written notice.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "T29",
+    "contract_type": "supplier",
+    "clause": "The Supplier may suspend the services only if an undisputed amount remains overdue for sixty (60) days after Northwind receives written notice of the non-payment.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "T30",
+    "contract_type": "nda",
+    "clause": "Each party's total liability under this Agreement shall not exceed USD 1,000,000, except for liability for fraud, wilful misconduct, or death or personal injury caused by negligence, which is unlimited.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "T31",
+    "contract_type": "supplier",
+    "clause": "The Supplier shall notify Northwind of any security incident affecting Northwind data without undue delay and within twenty-four (24) hours of becoming aware of it.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "T32",
+    "contract_type": "supplier",
+    "clause": "The Supplier's total liability shall be limited to one hundred percent (100%) of the fees paid in the preceding twelve (12) months and in any case shall not be less than USD 500,000, except for liability for fraud, wilful misconduct, or death or personal injury caused by negligence, which is unlimited.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "T33",
+    "contract_type": "supplier",
+    "clause": "The Supplier's liability is capped at the fees paid in the last month and excludes liability for fraud.",
+    "expected": [
+      {
+        "policy_id": "POL-MSA-007",
+        "severity": "High"
+      },
+      {
+        "policy_id": "POL-MSA-008",
+        "severity": "High"
+      }
+    ],
+    "note": "two violations"
+  },
+  {
+    "id": "T34",
+    "contract_type": "supplier",
+    "clause": "The Supplier shall not be liable for any delay caused by staff shortages, subcontractor failure or other events beyond the Supplier's normal operations.",
+    "expected": [
+      {
+        "policy_id": "POL-MSA-011",
+        "severity": "Low"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "T35",
+    "contract_type": "supplier",
+    "clause": "The Supplier shall give Northwind written notice within thirty (30) days of any change of control, and Northwind may terminate if the new owner is a competitor of Northwind.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "T36",
+    "contract_type": "nda",
+    "clause": "During the term, Northwind may not enter into discussions with any other party regarding the Purpose.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-010",
+        "severity": "High"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "T37",
+    "contract_type": "supplier",
+    "clause": "The Supplier gives no indemnity for intellectual property infringement claims relating to the services or deliverables.",
+    "expected": [
+      {
+        "policy_id": "POL-IP-003",
+        "severity": "High"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "T38",
+    "contract_type": "nda",
+    "clause": "The Counterparty may announce this collaboration on social media using Northwind's logo.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-018",
+        "severity": "Low"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "T39",
+    "contract_type": "supplier",
+    "clause": "The Supplier shall maintain public liability insurance of at least USD 500,000 per claim.",
+    "expected": [
+      {
+        "policy_id": "POL-MSA-009",
+        "severity": "Medium"
+      }
+    ],
+    "note": "wrong cover type and amount"
+  },
+  {
+    "id": "T40",
+    "contract_type": "supplier",
+    "clause": "Northwind shall pay each invoice within fifteen (15) days of the invoice date.",
+    "expected": [
+      {
+        "policy_id": "POL-MSA-001",
+        "severity": "Medium"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "T41",
+    "contract_type": "supplier",
+    "clause": "Northwind may, on reasonable notice, inspect the Supplier's premises and records to verify compliance with this Agreement.",
+    "expected": [],
+    "note": "trap: compliant. Sounds like an audit right (POL-NDA-017) but it benefits Northwind"
+  },
+  {
+    "id": "T42",
+    "contract_type": "nda",
+    "clause": "Neither party shall be entitled to seek an interim injunction in respect of any breach of this Agreement.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-012",
+        "severity": "High"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "T43",
+    "contract_type": "supplier",
+    "clause": "The Supplier's standard terms and conditions, as updated from time to time, are incorporated into this Agreement and prevail in the event of conflict.",
+    "expected": [
+      {
+        "policy_id": "POL-GEN-001",
+        "severity": "Medium"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "T44",
+    "contract_type": "supplier",
+    "clause": "The Supplier shall meet the service levels in Schedule 2 and shall pay service credits for each failure; Northwind may terminate if the Supplier fails the same service level three times in any six (6) month period.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "T45",
+    "contract_type": "nda",
+    "clause": "Only information that the Disclosing Party has stamped 'Confidential' before disclosure shall be protected.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-016",
+        "severity": "Medium"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "T46",
+    "contract_type": "supplier",
+    "clause": "Overdue amounts shall bear interest at two percent (2%) per month, including on amounts that Northwind disputes in good faith.",
+    "expected": [
+      {
+        "policy_id": "POL-MSA-002",
+        "severity": "Low"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "T47",
+    "contract_type": "supplier",
+    "clause": "Northwind may prevent automatic renewal by giving written notice at any time up to thirty (30) days before the renewal date.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "T48",
+    "contract_type": "nda",
+    "clause": "Any dispute shall be referred to a panel of three arbitrators whose decision shall be final and binding.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-014",
+        "severity": "Low"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "T49",
+    "contract_type": "supplier",
+    "clause": "The Supplier may subcontract any part of the services to third parties without notifying Northwind.",
+    "expected": [
+      {
+        "policy_id": "POL-MSA-013",
+        "severity": "Medium"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": "T50",
+    "contract_type": "supplier",
+    "clause": "Northwind may terminate this Agreement immediately if the Supplier becomes insolvent, or if the Supplier commits a material breach that it fails to remedy within thirty (30) days of written notice.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "T51",
+    "contract_type": "nda",
+    "clause": "Each party may terminate this Agreement for convenience on sixty (60) days' written notice.",
+    "expected": [],
+    "note": "compliant"
+  },
+  {
+    "id": "T52",
+    "contract_type": "supplier",
+    "clause": "All invoices shall be issued and paid in US dollars by bank transfer.",
+    "expected": [],
+    "note": "compliant: unrelated payment mechanics"
+  }
+]

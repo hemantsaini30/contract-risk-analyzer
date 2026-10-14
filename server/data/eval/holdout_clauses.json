@@ -1,0 +1,245 @@
+[
+  {
+    "id": "H01",
+    "clause": "Each party's obligation to maintain the secrecy of Confidential Information shall continue until the fifth anniversary of the date on which this Agreement ends.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-001",
+        "severity": "Medium"
+      }
+    ],
+    "note": "5 years written as 'fifth anniversary'; limit is 3 years"
+  },
+  {
+    "id": "H02",
+    "clause": "The restrictions on use and disclosure set out in this Agreement shall apply during the term and for two years after it ends.",
+    "expected": [],
+    "note": "compliant: 2 years"
+  },
+  {
+    "id": "H03",
+    "clause": "The parties submit to the jurisdiction of the courts of the Republic of India, and this Agreement shall be construed under Indian law.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-003",
+        "severity": "High"
+      }
+    ],
+    "note": "unapproved governing law, different phrasing"
+  },
+  {
+    "id": "H04",
+    "clause": "This Agreement and any dispute arising from it shall be governed by Delaware law, and the Delaware state courts shall have exclusive jurisdiction.",
+    "expected": [],
+    "note": "trap: compliant. Contains the word 'exclusive' (POL-NDA-010) but it is about court jurisdiction"
+  },
+  {
+    "id": "H05",
+    "clause": "Northwind will be responsible for all direct, indirect, special and consequential losses suffered by the Counterparty as a result of any breach of this Agreement.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-004",
+        "severity": "Critical"
+      }
+    ],
+    "note": "liability for indirect/consequential damages, no cap"
+  },
+  {
+    "id": "H06",
+    "clause": "Neither party shall be liable to the other for any indirect or consequential loss, and each party's total aggregate liability is limited to fifty thousand dollars.",
+    "expected": [],
+    "note": "compliant: mutual cap and exclusion"
+  },
+  {
+    "id": "H07",
+    "clause": "The Counterparty shall be kept harmless by Northwind from any third-party claims relating to the use of the Confidential Information.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-005",
+        "severity": "Critical"
+      }
+    ],
+    "acceptable_extra": [
+      "POL-NDA-004"
+    ],
+    "note": "one-sided indemnity without the word 'indemnify'"
+  },
+  {
+    "id": "H08",
+    "clause": "Either party may terminate this Agreement for convenience on two weeks' written notice.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-006",
+        "severity": "Medium"
+      }
+    ],
+    "note": "14 days; minimum is 30"
+  },
+  {
+    "id": "H09",
+    "clause": "Either party may terminate this Agreement for convenience by giving the other at least two months' written notice.",
+    "expected": [],
+    "note": "compliant: two months"
+  },
+  {
+    "id": "H10",
+    "clause": "The parties acknowledge that Confidential Information may include names, contact details and employment records of individuals, which each party may use freely for the Purpose.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-007",
+        "severity": "High"
+      }
+    ],
+    "note": "personal data without using the words 'personal data'; no data-protection safeguard"
+  },
+  {
+    "id": "H11",
+    "clause": "The Receiving Party may retain copies of the Confidential Information for as long as it considers necessary for its business purposes.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-008",
+        "severity": "Medium"
+      }
+    ],
+    "note": "open-ended retention, no legal-archive exception"
+  },
+  {
+    "id": "H12",
+    "clause": "Within twenty days of a request, the Receiving Party shall return or destroy the Confidential Information, except for copies it is legally required to keep for regulatory purposes.",
+    "expected": [],
+    "note": "compliant: 20 days plus the allowed archival exception"
+  },
+  {
+    "id": "H13",
+    "clause": "For a period of three years following termination, neither party will approach any of the other's employees with an offer of employment, whether or not through a general advertisement.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-009",
+        "severity": "Medium"
+      }
+    ],
+    "note": "3 years and no advertisement carve-out"
+  },
+  {
+    "id": "H14",
+    "clause": "For twelve months after the Effective Date, neither party shall actively solicit the other's employees, provided that general job advertisements are not a breach.",
+    "expected": [],
+    "note": "compliant: 12 months with advertisement carve-out"
+  },
+  {
+    "id": "H15",
+    "clause": "For the duration of this Agreement, Northwind shall refrain from developing, or engaging any third party to develop, products that are functionally similar to the Counterparty's products.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-010",
+        "severity": "High"
+      }
+    ],
+    "note": "non-compete in substance, not using the word"
+  },
+  {
+    "id": "H16",
+    "clause": "The parties agree that the sole and exclusive remedy for any breach of confidentiality is monetary damages, and neither party may apply to a court for an injunction.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-012",
+        "severity": "High"
+      }
+    ],
+    "note": "waiver of injunctive relief"
+  },
+  {
+    "id": "H17",
+    "clause": "The Receiving Party shall be free to use any general skills, know-how and ideas of a non-specific nature that its employees happen to remember after reviewing the Confidential Information.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-013",
+        "severity": "High"
+      }
+    ],
+    "note": "residuals clause without the word 'residual'"
+  },
+  {
+    "id": "H18",
+    "clause": "The Receiving Party may disclose Confidential Information where required by law and shall inform the Disclosing Party promptly after the disclosure has been made.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-015",
+        "severity": "Medium"
+      }
+    ],
+    "note": "notice after the fact, not prior notice; no cooperation"
+  },
+  {
+    "id": "H19",
+    "clause": "On reasonable notice, the Counterparty may visit Northwind's offices to inspect how Confidential Information is stored and handled.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-017",
+        "severity": "Medium"
+      }
+    ],
+    "note": "inspection right without the word 'audit'"
+  },
+  {
+    "id": "H20",
+    "clause": "Either party may mention the existence of this Agreement and the other party's name in investor presentations.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-018",
+        "severity": "Low"
+      }
+    ],
+    "note": "publicity without prior written consent"
+  },
+  {
+    "id": "H21",
+    "clause": "Confidential Information shall comprise only the documents and data that the Disclosing Party has identified in a written schedule attached to this Agreement.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-016",
+        "severity": "Medium"
+      }
+    ],
+    "note": "limited to scheduled/designated information"
+  },
+  {
+    "id": "H22",
+    "clause": "This Agreement may be executed in counterparts, each of which shall be deemed an original, and electronic signatures shall be valid.",
+    "expected": [],
+    "note": "compliant: unrelated boilerplate"
+  },
+  {
+    "id": "H23",
+    "clause": "Any notice under this Agreement shall be in writing and delivered by courier or email to the address set out on the signature page.",
+    "expected": [],
+    "note": "compliant: unrelated boilerplate"
+  },
+  {
+    "id": "H24",
+    "clause": "Any dispute shall be finally settled by arbitration in Singapore, and this Agreement is governed by Singapore law.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-003",
+        "severity": "High"
+      },
+      {
+        "policy_id": "POL-NDA-014",
+        "severity": "Low"
+      }
+    ],
+    "note": "two violations in one clause"
+  },
+  {
+    "id": "H25",
+    "clause": "Neither party may transfer or assign any of its rights under this Agreement, including to an affiliate, unless the other party has first agreed in writing.",
+    "expected": [],
+    "note": "trap: compliant. Mentions affiliates but requires consent"
+  },
+  {
+    "id": "H26",
+    "clause": "Each party shall use the other's Confidential Information only to evaluate the Purpose and for no other reason, and shall keep it as secure as it keeps its own most sensitive information.",
+    "expected": [],
+    "note": "compliant"
+  }
+]

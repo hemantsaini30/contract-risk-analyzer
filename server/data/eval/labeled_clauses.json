@@ -25,7 +25,10 @@
         "severity": "High"
       }
     ],
-    "note": ""
+    "acceptable_extra": [
+      "POL-NDA-001"
+    ],
+    "note": "perpetual also exceeds the 3-year limit, so POL-NDA-001 is an acceptable extra"
   },
   {
     "id": "C04",
@@ -76,7 +79,10 @@
         "severity": "Critical"
       }
     ],
-    "note": ""
+    "acceptable_extra": [
+      "POL-NDA-004"
+    ],
+    "note": "uncapped indemnity also implies uncapped liability, so POL-NDA-004 is an acceptable extra"
   },
   {
     "id": "C10",
@@ -203,9 +209,9 @@
   },
   {
     "id": "C23",
-    "clause": "If required by law to disclose Confidential Information, the Receiving Party shall give the Disclosing Party prompt written notice before any disclosure.",
+    "clause": "If required by law to disclose Confidential Information, the Receiving Party shall give the Disclosing Party prompt prior written notice before any disclosure and shall cooperate in seeking a protective order.",
     "expected": [],
-    "note": ""
+    "note": "fully compliant: notice AND cooperation (POL-NDA-015 requires both)"
   },
   {
     "id": "C24",
@@ -293,7 +299,10 @@
         "severity": "Critical"
       }
     ],
-    "note": "HARD: paraphrased wording, rule-based mock will miss; real LLM should catch"
+    "acceptable_extra": [
+      "POL-NDA-005"
+    ],
+    "note": "HARD: paraphrased wording, rule-based mock will miss; real LLM should catch. Also an uncapped one-sided indemnity in substance, so POL-NDA-005 is an acceptable extra"
   },
   {
     "id": "C33",
@@ -305,5 +314,16 @@
       }
     ],
     "note": "HARD: 'decade' instead of a number; mock will miss"
+  },
+  {
+    "id": "C34",
+    "clause": "If required by law to disclose Confidential Information, the Receiving Party shall give the Disclosing Party prompt prior written notice before any disclosure.",
+    "expected": [
+      {
+        "policy_id": "POL-NDA-015",
+        "severity": "Medium"
+      }
+    ],
+    "note": "boundary: notice given but no cooperation in seeking protective measures; policy text requires both. Mock rule only checks notice and will miss."
   }
 ]

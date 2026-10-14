@@ -1,0 +1,31 @@
+MASTER SERVICES AGREEMENT
+
+This Master Services Agreement (the "Agreement") is made on 10 September 2026 between Northwind Technologies Ltd ("Northwind") and Acme Cloud Services Ltd (the "Supplier").
+
+1. Services. The Supplier shall provide the cloud hosting and support services described in the order forms agreed between the parties from time to time.
+
+2. Fees and Payment. Northwind shall pay each undisputed invoice within twenty (20) days of receipt of that invoice.
+
+3. Fee Increases. The Supplier may increase the fees at any time during the term by giving Northwind thirty (30) days' written notice.
+
+4. Renewal. This Agreement renews automatically for successive two (2) year terms unless Northwind gives written notice at least ninety (90) days before the end of the then-current term.
+
+5. Intellectual Property. All intellectual property rights in the deliverables created under this Agreement shall remain with the Supplier.
+
+6. Data Use. The Supplier may use data submitted by Northwind to train and improve its artificial-intelligence models.
+
+7. Security Incidents. The Supplier shall notify Northwind of any security incident affecting Northwind data within five (5) business days of becoming aware of it.
+
+8. Data Location. The Supplier shall store and process Northwind personal data only within the United Kingdom or the European Economic Area.
+
+9. Warranty. The services are provided 'as is' without warranty of any kind.
+
+10. Limitation of Liability. The Supplier's total liability under this Agreement shall be limited to the fees paid in the three (3) months before the claim arose.
+
+11. Subcontracting. The Supplier shall not subcontract a material part of the services without Northwind's prior written consent and shall remain fully liable for its subcontractors.
+
+12. Termination for Breach. Northwind may terminate this Agreement for material breach only after a one hundred and twenty (120) day remedy period has expired without the breach being remedied.
+
+13. Standard Terms. The Supplier's standard terms and conditions apply to the services and prevail over this Agreement where they conflict.
+
+14. Governing Law. This Agreement shall be governed by and construed in accordance with the laws of England and Wales.

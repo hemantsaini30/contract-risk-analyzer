@@ -1,0 +1,126 @@
+{
+  "set": "dev2",
+  "when": "2026-10-13T11:32:22.682Z",
+  "llm": "groq",
+  "embeddings": "gemini",
+  "retrievalMode": "vector",
+  "topK": 5,
+  "policies": 49,
+  "retrieval": {
+    "vector": {
+      "recall@1": 0.8620689655172413,
+      "recall@3": 0.9310344827586207,
+      "recall@5": 0.9655172413793104,
+      "recall@8": 0.9655172413793104,
+      "notInTopK": [
+        "D31:NDA-007"
+      ]
+    },
+    "keyword": {
+      "recall@1": 0.7241379310344828,
+      "recall@3": 0.8620689655172413,
+      "recall@5": 0.8620689655172413,
+      "recall@8": 0.896551724137931,
+      "notInTopK": [
+        "D06:MSA-001",
+        "D15:NDA-015",
+        "D31:NDA-007",
+        "D38:NDA-005"
+      ]
+    },
+    "hybrid": {
+      "recall@1": 0.7931034482758621,
+      "recall@3": 0.896551724137931,
+      "recall@5": 0.9310344827586207,
+      "recall@8": 0.9655172413793104,
+      "notInTopK": [
+        "D15:NDA-015",
+        "D31:NDA-007"
+      ]
+    },
+    "hybrid_rerank": {
+      "recall@1": 0.6551724137931034,
+      "recall@3": 0.7931034482758621,
+      "recall@5": 0.896551724137931,
+      "recall@8": 0.9655172413793104,
+      "notInTopK": [
+        "D06:MSA-001",
+        "D15:NDA-015",
+        "D31:NDA-007"
+      ]
+    }
+  },
+  "detection": {
+    "precision": 0.875,
+    "recall": 0.9655172413793104,
+    "f1": 0.9180327868852458,
+    "severityAccuracy": 1,
+    "citationAccuracy": 0.9722222222222222,
+    "cleanFlagged": 2,
+    "cleanTotal": 20,
+    "acceptedExtras": 4
+  },
+  "misses": [
+    "D31 missed POL-NDA-007  [policy was NOT retrieved, the LLM never saw it]  (also overlaps with data location rule SEC-003)"
+  ],
+  "falseAlarms": [
+    "D03 flagged POL-MSA-005 (confidence 0.85): The clause provides for automatic renewal but does not include the required notice mechanism allowing Northwind to stop renewal within the 30‑day window mandated by polic\n      clause: \"This Agreement shall renew automatically for successive twelve (12) month periods unless terminated.\"",
+    "D16 flagged POL-MSA-001 (confidence 0.95): The clause triggers suspension after 10 days, violating the policy that Northwind must have at least 45 days to pay invoices.\n      clause: \"The Supplier may suspend the services if any invoice remains unpaid for ten (10) days after the due date.\"",
+    "D24 flagged POL-MSA-003 (confidence 0.95): The clause addresses fee changes but omits the policy‑required 5% cap and 60‑day notice for fee increases in renewal terms, violating POL-MSA-003 which mandates those saf\n      clause: \"No change to the scope, fees or service description shall be binding unless agreed in writing and signed by bo\"",
+    "D41 flagged POL-MSA-016 (confidence 0.94): The clause allows indefinite retention, conflicting with the policy’s requirement to return data in a standard format after termination.\n      clause: \"The Supplier may retain Northwind data on its systems and backups indefinitely after the services end.\""
+  ],
+  "sevWrong": [],
+  "unverified": [
+    "D10 POL-MSA-014: POLICY quote not found in policy text -> \"cure periods longer than thirty (30) days are not acceptable\""
+  ],
+  "confidenceSweep": [
+    {
+      "threshold": 0,
+      "precision": 0.875,
+      "recall": 0.9655172413793104,
+      "f1": 0.9180327868852458,
+      "cleanFlagged": 2,
+      "cleanTotal": 20
+    },
+    {
+      "threshold": 0.7,
+      "precision": 0.8709677419354839,
+      "recall": 0.9310344827586207,
+      "f1": 0.9,
+      "cleanFlagged": 2,
+      "cleanTotal": 20
+    },
+    {
+      "threshold": 0.8,
+      "precision": 0.8709677419354839,
+      "recall": 0.9310344827586207,
+      "f1": 0.9,
+      "cleanFlagged": 2,
+      "cleanTotal": 20
+    },
+    {
+      "threshold": 0.85,
+      "precision": 0.8709677419354839,
+      "recall": 0.9310344827586207,
+      "f1": 0.9,
+      "cleanFlagged": 2,
+      "cleanTotal": 20
+    },
+    {
+      "threshold": 0.9,
+      "precision": 0.9,
+      "recall": 0.9310344827586207,
+      "f1": 0.9152542372881356,
+      "cleanFlagged": 1,
+      "cleanTotal": 20
+    },
+    {
+      "threshold": 0.95,
+      "precision": 0.9310344827586207,
+      "recall": 0.9310344827586207,
+      "f1": 0.9310344827586207,
+      "cleanFlagged": 1,
+      "cleanTotal": 20
+    }
+  ]
+}

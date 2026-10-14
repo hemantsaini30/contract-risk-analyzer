@@ -7,14 +7,19 @@ import { embed } from '../services/embeddings.js';
 import { retrieve } from '../services/retrieval.js';
 import { analyzeClause } from '../services/llm.js';
 import { verifyFinding } from '../services/verify.js';
+import { normalizeType } from '../services/contractType.js';
 
-const EXAMPLES = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../data/eval/labeled_clauses.json');
+const EVAL_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../data/eval');
 export const checkRouter = Router();
 
 /** Example clauses (with the known right answer) so you can test by hand. */
 checkRouter.get('/examples', async (_req, res, next) => {
   try {
-    res.json(JSON.parse(await fs.readFile(EXAMPLES, 'utf8')));
+    // development examples only (the holdout sets are deliberately NOT offered here)
+    const nda = JSON.parse(await fs.readFile(path.join(EVAL_DIR, 'labeled_clauses.json'), 'utf8')).map((x) => ({ ...x, contract_type: x.contract_type || 'nda' }));
+    let dev2 = [];
+    try { dev2 = JSON.parse(await fs.readFile(path.join(EVAL_DIR, 'dev2_clauses.json'), 'utf8')); } catch { /* optional */ }
+    res.json([...nda, ...dev2]);
   } catch (e) { next(e); }
 });
 
@@ -31,7 +36,8 @@ checkRouter.post('/', async (req, res, next) => {
 
     const t0 = Date.now();
     const [embedding] = await embed([clause]);
-    const retrieved = await retrieve(clause, { topK: config.topK, embedding });
+    const contractType = normalizeType(req.body?.contract_type);
+    const retrieved = await retrieve(clause, { topK: config.topK, embedding, contractType });
     if (!retrieved.length) return res.status(400).json({ error: 'No policies in the database. Run: npm run seed' });
 
     const { findings } = await analyzeClause({ number: null, text: clause }, retrieved);
@@ -47,6 +53,7 @@ checkRouter.post('/', async (req, res, next) => {
       policies_checked: retrieved.map((r) => ({
         policy_id: r.policy_id, title: r.title, text: r.text, scores: r.scores,
       })),
+      contract_type: contractType,
       models: { llm: config.llmProvider, embeddings: config.embedProvider },
       ms: Date.now() - t0,
     });

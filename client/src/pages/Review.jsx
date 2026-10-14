@@ -57,6 +57,13 @@ export default function Review() {
         <div className="card-head">
           <h2>{contract.filename}</h2>
           <span className="spacer" />
+          <label className="small">Contract type{' '}
+            <select value={contract.contract_type || 'auto'} onChange={(e) => api.reanalyze(id, e.target.value).then(() => window.location.reload())}>
+              <option value="auto">auto / unknown</option>
+              <option value="nda">NDA</option>
+              <option value="supplier">Supplier / services</option>
+            </select>
+          </label>
           <button className="btn ghost" onClick={() => { api.reanalyze(id).then(() => window.location.reload()); }}>Re-run analysis</button>
           <a className="btn accept" href={api.reportUrl(id)}>Export report</a>
         </div>
